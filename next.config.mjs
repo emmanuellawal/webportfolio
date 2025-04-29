@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'export', // Enable static exports
-  distDir: 'out', // Explicitly set the output directory to 'out'
+  // distDir is only used for the .next directory - removing to avoid conflicts
+  // with the 'output: export' setting which puts files in ./out
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

@@ -44,7 +44,9 @@ jobs:
         run: npm ci
 
       - name: Build with Next.js
-        run: npm run build
+        run: |
+          npm run build
+          npm run export
 
       - name: List directory contents for debugging
         run: |
@@ -61,7 +63,7 @@ jobs:
             ls -la ./.next
           fi
 
-      # Ensure out directory exists if build created .next instead
+      # This step is now likely unnecessary but kept as a fallback
       - name: Create out directory if needed
         run: |
           if [ ! -d "./out" ] && [ -d "./.next" ]; then
