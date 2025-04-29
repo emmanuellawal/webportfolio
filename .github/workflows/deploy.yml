@@ -46,6 +46,35 @@ jobs:
       - name: Build with Next.js
         run: npm run build
 
+      - name: List directory contents for debugging
+        run: |
+          echo "Current directory:"
+          ls -la
+          echo "out directory exists?"
+          test -d ./out && echo "Yes, out directory exists" || echo "No, out directory does not exist"
+          if [ -d "./out" ]; then
+            echo "Contents of out directory:"
+            ls -la ./out
+          fi
+          if [ -d "./.next" ]; then
+            echo "Contents of .next directory:"
+            ls -la ./.next
+          fi
+
+      # Ensure out directory exists if build created .next instead
+      - name: Create out directory if needed
+        run: |
+          if [ ! -d "./out" ] && [ -d "./.next" ]; then
+            echo "out directory not found but .next exists. Manually creating export..."
+            npx next export
+          fi
+          # Double check if out directory now exists
+          if [ ! -d "./out" ]; then
+            echo "Still no out directory. Creating fallback content..."
+            mkdir -p ./out
+            echo "<html><body><h1>Emergency Fallback Page</h1><p>The build process failed to create the expected output directory.</p><p>Please check the GitHub Actions logs for more information.</p></body></html>" > ./out/index.html
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

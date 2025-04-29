@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   output: 'export', // Enable static exports
+  distDir: 'out', // Explicitly set the output directory to 'out'
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
