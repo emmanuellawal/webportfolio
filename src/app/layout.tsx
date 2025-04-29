@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { MainNav } from "@/components/main-nav";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,12 +19,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Outlaw AI Consultancy",
-    template: "%s | Outlaw AI Consultancy",
+    default: "Emmanuel Lawal | Full Stack Developer",
+    template: "%s | Emmanuel Lawal",
   },
-  description: "Challenging the AI status quo with radical honesty and evidence-based disruption",
-  authors: [{ name: "Outlaw AI Consultancy" }],
-  keywords: ["AI consultancy", "digital transformation", "disruptive innovation"],
+  description: "Full Stack Developer specializing in building exceptional digital experiences",
+  authors: [{ name: "Emmanuel Lawal" }],
+  keywords: ["Full Stack Developer", "Web Development", "Software Engineer", "React", "Node.js", "JavaScript", "TypeScript"],
 };
 
 export const viewport: Viewport = {
@@ -42,9 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${ibmPlexMono.variable} font-sans antialiased bg-gradient-to-b from-background to-background/80 min-h-screen flex flex-col`}>
         <MainNav />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
