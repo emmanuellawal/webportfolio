@@ -44,7 +44,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold">Connect</h3>
             <div className="flex gap-4 text-muted-foreground">
               <a
-                href="https://github.com/elawa"
+                href="https://github.com/emmanuellawal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-foreground"
@@ -52,7 +52,7 @@ const Footer = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/in/emmanuel-lawal"
+                href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-foreground"
@@ -60,7 +60,7 @@ const Footer = () => {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:contact@emmanuellawal.dev"
+                href="mailto:emmanuellawal2024@gmail.com"
                 className="hover:text-foreground"
               >
                 <Mail className="h-5 w-5" />
