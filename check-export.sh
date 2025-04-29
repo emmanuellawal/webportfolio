@@ -4,9 +4,25 @@
 echo "Cleaning existing output directories..."
 rm -rf .next out
 
-# Build the Next.js app (which also creates the static export with output: 'export' in next.config.mjs)
+# Build the Next.js app
 echo "Building Next.js app..."
 npm run build
+
+# Check if .next directory exists
+echo "Checking if .next directory was created..."
+if [ -d "./.next" ]; then
+  echo "✅ Success! The .next directory was created."
+  echo "Contents of .next directory:"
+  ls -la ./.next
+else
+  echo "❌ The .next directory was not created!"
+  echo "Build process failed."
+  exit 1
+fi
+
+# Export the Next.js app to static HTML
+echo "Exporting Next.js app to static HTML..."
+npm run export
 
 # Check if out directory exists
 if [ -d "./out" ]; then
@@ -25,9 +41,8 @@ else
   echo "Current directory contents:"
   ls -la
   
-  # Check if .next directory exists
-  if [ -d "./.next" ]; then
-    echo ".next directory exists with contents:"
-    ls -la ./.next
-  fi
-fi 
+  echo "Export process failed."
+  exit 1
+fi
+
+echo "✅ Build and export completed successfully!" 

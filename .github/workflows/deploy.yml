@@ -45,30 +45,30 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
-        # With output: 'export' in next.config.mjs, next build already creates the static export
+        # Using default .next directory for build output
 
       - name: List directory contents for debugging
         run: |
           echo "Current directory:"
           ls -la
-          echo "out directory exists?"
-          test -d ./out && echo "Yes, out directory exists" || echo "No, out directory does not exist"
-          if [ -d "./out" ]; then
-            echo "Contents of out directory:"
-            ls -la ./out
-          fi
+          echo ".next directory exists?"
+          test -d ./.next && echo "Yes, .next directory exists" || echo "No, .next directory does not exist"
           if [ -d "./.next" ]; then
             echo "Contents of .next directory:"
             ls -la ./.next
           fi
 
-      # This step is now likely unnecessary but kept as a fallback
-      - name: Create out directory if needed
+      # Export the Next.js app to static HTML
+      - name: Export Next.js app
+        run: npx next export
+
+      - name: List out directory after export
         run: |
-          if [ ! -d "./out" ]; then
-            echo "out directory not found. Creating fallback content..."
-            mkdir -p ./out
-            echo "<html><body><h1>Emergency Fallback Page</h1><p>The build process failed to create the expected output directory.</p><p>Please check the GitHub Actions logs for more information.</p></body></html>" > ./out/index.html
+          echo "out directory exists?"
+          test -d ./out && echo "Yes, out directory exists" || echo "No, out directory does not exist"
+          if [ -d "./out" ]; then
+            echo "Contents of out directory:"
+            ls -la ./out
           fi
 
       - name: Upload artifact
