@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  output: 'export',
   images: {
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       // Add any remote image domains you might use
@@ -17,9 +19,8 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
-  // This basePath is set automatically by GitHub Actions if using github-pages
-  // If testing locally, you might want to comment this out
-  // basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  // Enable basePath for GitHub Pages
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
 };
 
 export default nextConfig;

@@ -36,8 +36,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+          # Automatically inject basePath in your Next.js configuration file
           static_site_generator: next
 
       - name: Install dependencies
@@ -45,25 +44,12 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
-        # Using default .next directory for build output
+        # Build will automatically output to ./out due to output: 'export' config
 
       - name: List directory contents for debugging
         run: |
           echo "Current directory:"
           ls -la
-          echo ".next directory exists?"
-          test -d ./.next && echo "Yes, .next directory exists" || echo "No, .next directory does not exist"
-          if [ -d "./.next" ]; then
-            echo "Contents of .next directory:"
-            ls -la ./.next
-          fi
-
-      # Export the Next.js app to static HTML
-      - name: Export Next.js app
-        run: npx next export
-
-      - name: List out directory after export
-        run: |
           echo "out directory exists?"
           test -d ./out && echo "Yes, out directory exists" || echo "No, out directory does not exist"
           if [ -d "./out" ]; then
