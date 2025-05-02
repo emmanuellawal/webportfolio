@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Mail, ArrowRight, Code, Server, Palette, User, Phone, Globe } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, Code, Server, Palette, User, Phone, Globe, Brain, Sparkles, Send } from "lucide-react";
 import { ScrollButton } from "@/components/ScrollButton";
 import Image from "next/image";
 
@@ -89,22 +89,86 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="py-16">
-          <div className="text-center space-y-8 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
-              About Me
-            </h2>
-            <div className="space-y-6 text-lg text-medium-contrast">
-              <p>
-                I'm a passionate Full Stack Developer and Information Systems student at NJIT's College of Computing Sciences. 
-                My journey in tech is driven by a deep curiosity for building innovative solutions that make a real impact.
+          <div className="text-center space-y-12 max-w-4xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+                About Me
+              </h2>
+              <p className="text-lg text-medium-contrast">
+                Crafting the future through code and artificial intelligence.
               </p>
-              <p>
-                With a strong foundation in both frontend and backend development, I specialize in creating seamless, 
-                user-centric applications that solve complex problems while maintaining clean, efficient code.
-              </p>
-              <p>
-                When I'm not coding, I'm constantly learning new technologies and best practices to stay at the forefront 
-                of web development.
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="text-left p-6 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-primary-500/10">
+                    <Code className="h-6 w-6 text-primary-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Development Journey</h3>
+                    <p className="text-medium-contrast">
+                      As a Full Stack Developer and Information Systems student at NJIT, 
+                      I've cultivated a deep understanding of both frontend and backend technologies. 
+                      My approach combines technical expertise with a keen eye for user experience.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="text-left p-6 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-secondary-500/10">
+                    <Brain className="h-6 w-6 text-secondary-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">AI Enthusiasm</h3>
+                    <p className="text-medium-contrast">
+                      I'm deeply passionate about artificial intelligence and its potential to transform software development. 
+                      I actively integrate AI technologies into my projects, from natural language processing to intelligent automation.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="text-left p-6 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-accent-500/10">
+                    <Sparkles className="h-6 w-6 text-accent-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Innovation Focus</h3>
+                    <p className="text-medium-contrast">
+                      My goal is to push the boundaries of what's possible in web development. 
+                      I'm constantly exploring new technologies and methodologies to create more 
+                      intelligent and efficient solutions.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="text-left p-6 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-primary-500/10">
+                    <Server className="h-6 w-6 text-primary-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Technical Expertise</h3>
+                    <p className="text-medium-contrast">
+                      With a strong foundation in modern web technologies and AI frameworks, 
+                      I specialize in creating scalable applications that leverage the power 
+                      of artificial intelligence and machine learning.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            <div className="max-w-2xl mx-auto bg-card/40 backdrop-blur-sm rounded-lg p-6 border border-border/50">
+              <p className="text-lg text-medium-contrast italic">
+                "I believe in the transformative power of combining traditional software development 
+                with artificial intelligence to create solutions that not only meet current needs 
+                but anticipate future challenges."
               </p>
             </div>
           </div>
@@ -269,34 +333,75 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="py-16 mb-16">
-          <div className="text-center space-y-8 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
-              Get in Touch
-            </h2>
-            <p className="text-lg text-medium-contrast">
-              I'm always open to new opportunities and collaborations. Feel free to reach out!
-            </p>
-            <div className="flex flex-col gap-4 items-center justify-center">
-              <a 
-                href="mailto:emmanuellawal2024@gmail.com"
-                className="flex items-center gap-2 text-lg hover:text-primary-500 transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-                emmanuellawal2024@gmail.com
-              </a>
-              <div className="flex gap-4 mt-4">
-                <a href="https://github.com/emmanuellawal" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg" className="hover-lift">
-                    <Github className="h-5 w-5 mr-2" /> GitHub
-                  </Button>
-                </a>
-                <a href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg" className="hover-lift">
-                    <Linkedin className="h-5 w-5 mr-2" /> LinkedIn
-                  </Button>
-                </a>
-              </div>
+          <div className="text-center space-y-12 max-w-2xl mx-auto">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+                Get in Touch
+              </h2>
+              <p className="text-lg text-medium-contrast">
+                Interested in collaboration or just want to say hello? I'd love to hear from you!
+              </p>
             </div>
+
+            <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3 text-medium-contrast hover:text-primary-500 transition-colors">
+                    <Mail className="h-5 w-5" />
+                    <a 
+                      href="mailto:emmanuellawal2024@gmail.com"
+                      className="text-lg"
+                    >
+                      emmanuellawal2024@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 text-medium-contrast hover:text-secondary-500 transition-colors">
+                    <Github className="h-5 w-5" />
+                    <a 
+                      href="https://github.com/emmanuellawal"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg"
+                    >
+                      github.com/emmanuellawal
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3 text-medium-contrast hover:text-accent-500 transition-colors">
+                    <Linkedin className="h-5 w-5" />
+                    <a 
+                      href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg"
+                    >
+                      LinkedIn Profile
+                    </a>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold">Quick Connect</h3>
+                  <p className="text-medium-contrast">
+                    Whether you're interested in collaboration, have a project idea, 
+                    or just want to discuss technology and AI, I'm always open to 
+                    new connections and opportunities.
+                  </p>
+                  <Button 
+                    asChild
+                    size="lg" 
+                    className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90"
+                  >
+                    <a 
+                      href="mailto:emmanuellawal2024@gmail.com"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Send className="h-5 w-5" />
+                      Send Message
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Card>
           </div>
         </section>
       </main>
