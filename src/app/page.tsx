@@ -37,20 +37,20 @@ export default function Home() {
       <main className="container mx-auto space-y-32 px-4">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-          <div className="text-center space-y-6 max-w-[800px] mx-auto">
-            <div className="relative inline-block">
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 pb-2 glow">
-                Emmanuel Lawal
-              </h1>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-full"></div>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
-              Full Stack Developer
-            </h2>
-            <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-              I craft exceptional digital experiences with modern technologies, focusing on scalable and user-centric solutions.
-            </p>
-            <div className="flex gap-4 justify-center pt-4">
+        <div className="text-center space-y-6 max-w-[800px] mx-auto">
+          <div className="relative inline-block">
+            <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 pb-2 glow">
+              Emmanuel Lawal
+            </h1>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-full"></div>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
+            Full Stack Developer
+          </h2>
+          <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
+            I craft exceptional digital experiences with modern technologies, focusing on scalable and user-centric solutions.
+          </p>
+          <div className="flex gap-4 justify-center pt-4">
               <ScrollButton
                 targetId="#projects"
                 size="lg"
@@ -66,22 +66,22 @@ export default function Home() {
               >
                 Get in Touch
               </ScrollButton>
-            </div>
-            <div className="flex gap-4 justify-center pt-8">
+          </div>
+          <div className="flex gap-4 justify-center pt-8">
               <a href="https://github.com/emmanuellawal" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="hover:bg-primary-500/10 hover:text-primary-500 hover-lift backdrop-blur-sm">
-                  <Github className="h-5 w-5" />
-                </Button>
+              <Button variant="ghost" size="icon" className="hover:bg-primary-500/10 hover:text-primary-500 hover-lift backdrop-blur-sm">
+                <Github className="h-5 w-5" />
+              </Button>
               </a>
               <a href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="hover:bg-secondary-500/10 hover:text-secondary-500 hover-lift backdrop-blur-sm">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
+              <Button variant="ghost" size="icon" className="hover:bg-secondary-500/10 hover:text-secondary-500 hover-lift backdrop-blur-sm">
+                <Linkedin className="h-5 w-5" />
+              </Button>
               </a>
               <a href="mailto:emmanuellawal2024@gmail.com">
-                <Button variant="ghost" size="icon" className="hover:bg-accent-500/10 hover:text-accent-500 hover-lift backdrop-blur-sm">
-                  <Mail className="h-5 w-5" />
-                </Button>
+              <Button variant="ghost" size="icon" className="hover:bg-accent-500/10 hover:text-accent-500 hover-lift backdrop-blur-sm">
+                <Mail className="h-5 w-5" />
+              </Button>
               </a>
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function Home() {
               <p className="text-lg text-medium-contrast">
                 Crafting the future through code and artificial intelligence.
               </p>
-            </div>
+        </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="text-left p-6 bg-card/40 backdrop-blur-sm hover:bg-card/60 transition-all duration-300">
@@ -122,7 +122,7 @@ export default function Home() {
                     <Brain className="h-6 w-6 text-secondary-500" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">AI Enthusiasm</h3>
+                    <h3 className="text-xl font-semibold">AI Innovation & Research</h3>
                     <p className="text-medium-contrast">
                       I'm deeply passionate about artificial intelligence and its potential to transform software development. 
                       I actively integrate AI technologies into my projects, from natural language processing to intelligent automation.
@@ -185,51 +185,51 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="hover-lift border-l-4 border-l-primary-500 group hover:border-l-primary-400 glow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 group-hover:text-primary-500 transition-colors">
-                  <Code className="h-5 w-5" />
-                  Frontend Development
-                </CardTitle>
-                <CardDescription>Building beautiful interfaces</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-medium-contrast">
-                  React, Next.js, TypeScript, Tailwind CSS, and modern frontend tools to create responsive and accessible web applications.
-                </p>
-              </CardContent>
-            </Card>
+          <Card className="hover-lift border-l-4 border-l-primary-500 group hover:border-l-primary-400 glow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 group-hover:text-primary-500 transition-colors">
+                <Code className="h-5 w-5" />
+                Frontend Development
+              </CardTitle>
+              <CardDescription>Building beautiful interfaces</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-medium-contrast">
+                React, Next.js, TypeScript, Tailwind CSS, and modern frontend tools to create responsive and accessible web applications.
+              </p>
+            </CardContent>
+          </Card>
 
-            <Card className="hover-lift border-l-4 border-l-secondary-500 group hover:border-l-secondary-400 glow-secondary">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 group-hover:text-secondary-500 transition-colors">
-                  <Server className="h-5 w-5" />
-                  Backend Development
-                </CardTitle>
-                <CardDescription>Powering the applications</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-medium-contrast">
-                  Node.js, Express, PostgreSQL, MongoDB, and RESTful APIs to build robust and scalable backend solutions.
-                </p>
-              </CardContent>
-            </Card>
+          <Card className="hover-lift border-l-4 border-l-secondary-500 group hover:border-l-secondary-400 glow-secondary">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 group-hover:text-secondary-500 transition-colors">
+                <Server className="h-5 w-5" />
+                Backend Development
+              </CardTitle>
+              <CardDescription>Powering the applications</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-medium-contrast">
+                Node.js, Express, PostgreSQL, MongoDB, and RESTful APIs to build robust and scalable backend solutions.
+              </p>
+            </CardContent>
+          </Card>
 
-            <Card className="hover-lift border-l-4 border-l-accent-500 group hover:border-l-accent-400 glow-accent">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 group-hover:text-accent-500 transition-colors">
-                  <Palette className="h-5 w-5" />
-                  UI/UX Design
-                </CardTitle>
-                <CardDescription>Creating experiences</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-medium-contrast">
-                  User-centered design principles, wireframing, prototyping, and modern design tools to create intuitive experiences.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="hover-lift border-l-4 border-l-accent-500 group hover:border-l-accent-400 glow-accent">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 group-hover:text-accent-500 transition-colors">
+                <Palette className="h-5 w-5" />
+                UI/UX Design
+              </CardTitle>
+              <CardDescription>Creating experiences</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-medium-contrast">
+                User-centered design principles, wireframing, prototyping, and modern design tools to create intuitive experiences.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
         </section>
 
         {/* Projects Section */}
@@ -333,73 +333,111 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="py-16 mb-16">
-          <div className="text-center space-y-12 max-w-2xl mx-auto">
+          <div className="text-center space-y-12 max-w-4xl mx-auto">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
-                Get in Touch
+                Let's Create Something Amazing Together
               </h2>
               <p className="text-lg text-medium-contrast">
-                Interested in collaboration or just want to say hello? I'd love to hear from you!
+                Whether you have a groundbreaking project idea or want to explore AI possibilities,
+                I'm here to turn your vision into reality.
               </p>
             </div>
 
-            <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3 text-medium-contrast hover:text-primary-500 transition-colors">
-                    <Mail className="h-5 w-5" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8 hover:bg-card/60 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Mail className="h-5 w-5 text-primary-500" />
+                    Direct Contact
+                  </CardTitle>
+                  <CardDescription>
+                    Reach out directly through your preferred channel
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-4">
                     <a 
                       href="mailto:emmanuellawal2024@gmail.com"
-                      className="text-lg"
+                      className="flex items-center gap-3 text-medium-contrast hover:text-primary-500 transition-colors p-3 rounded-lg hover:bg-primary-500/10"
                     >
-                      emmanuellawal2024@gmail.com
+                      <Mail className="h-5 w-5" />
+                      <span className="text-lg">emmanuellawal2024@gmail.com</span>
                     </a>
-                  </div>
-                  <div className="flex items-center gap-3 text-medium-contrast hover:text-secondary-500 transition-colors">
-                    <Github className="h-5 w-5" />
                     <a 
                       href="https://github.com/emmanuellawal"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg"
+                      className="flex items-center gap-3 text-medium-contrast hover:text-secondary-500 transition-colors p-3 rounded-lg hover:bg-secondary-500/10"
                     >
-                      github.com/emmanuellawal
+                      <Github className="h-5 w-5" />
+                      <span className="text-lg">github.com/emmanuellawal</span>
                     </a>
-                  </div>
-                  <div className="flex items-center gap-3 text-medium-contrast hover:text-accent-500 transition-colors">
-                    <Linkedin className="h-5 w-5" />
                     <a 
                       href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg"
+                      className="flex items-center gap-3 text-medium-contrast hover:text-accent-500 transition-colors p-3 rounded-lg hover:bg-accent-500/10"
                     >
-                      LinkedIn Profile
+                      <Linkedin className="h-5 w-5" />
+                      <span className="text-lg">LinkedIn Profile</span>
                     </a>
                   </div>
-                </div>
+                </CardContent>
+              </Card>
 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold">Quick Connect</h3>
+              <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8 hover:bg-card/60 transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Sparkles className="h-5 w-5 text-secondary-500" />
+                    Project Collaboration
+                  </CardTitle>
+                  <CardDescription>
+                    Let's discuss your next big idea
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
                   <p className="text-medium-contrast">
-                    Whether you're interested in collaboration, have a project idea, 
-                    or just want to discuss technology and AI, I'm always open to 
-                    new connections and opportunities.
+                    I specialize in:
+                    <ul className="list-none space-y-2 mt-2">
+                      <li className="flex items-center gap-2">
+                        <Brain className="h-4 w-4 text-primary-500" />
+                        AI Integration & Development
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Code className="h-4 w-4 text-secondary-500" />
+                        Full Stack Web Applications
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <Server className="h-4 w-4 text-accent-500" />
+                        Scalable System Architecture
+                      </li>
+                    </ul>
                   </p>
                   <Button 
                     asChild
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90"
+                    className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
                   >
                     <a 
                       href="mailto:emmanuellawal2024@gmail.com"
                       className="flex items-center justify-center gap-2"
                     >
                       <Send className="h-5 w-5" />
-                      Send Message
+                      Start a Conversation
                     </a>
                   </Button>
-                </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8 mt-8">
+              <div className="text-center space-y-4">
+                <h3 className="text-xl font-semibold">Available for Select Projects</h3>
+                <p className="text-medium-contrast max-w-2xl mx-auto">
+                  Currently accepting new projects in AI development, web applications, and technical consulting. 
+                  Let's discuss how we can work together to bring your ideas to life.
+                </p>
               </div>
             </Card>
           </div>
