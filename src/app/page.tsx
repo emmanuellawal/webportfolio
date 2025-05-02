@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Linkedin, Mail, ArrowRight, Code, Server, Palette, User, Phone, Globe, Brain, Sparkles, Send } from "lucide-react";
 import { ScrollButton } from "@/components/ScrollButton";
+import { ContactDialog } from "@/components/ContactDialog";
 import Image from "next/image";
 
 export default function Home() {
@@ -236,7 +237,7 @@ export default function Home() {
         <section id="projects" className="py-16">
           <div className="text-center space-y-8 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
-              Featured Projects
+              My Playground
             </h2>
             <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
               Here are some of my recent projects that showcase my skills and experience in full-stack development, 
@@ -414,19 +415,15 @@ export default function Home() {
                       </li>
                     </ul>
                   </p>
-                  <Button 
-                    asChild
-                    size="lg" 
-                    className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
-                  >
-                    <a 
-                      href="mailto:emmanuellawal2024@gmail.com"
-                      className="flex items-center justify-center gap-2"
+                  <ContactDialog>
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
                     >
-                      <Send className="h-5 w-5" />
+                      <Send className="mr-2 h-5 w-5" />
                       Start a Conversation
-                    </a>
-                  </Button>
+                    </Button>
+                  </ContactDialog>
                 </CardContent>
               </Card>
             </div>

@@ -15,9 +15,9 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 export function MainNav() {
   const routes = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
+    { href: "#about", label: "About Me" },
     { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "My Playground" },
     { href: "#contact", label: "Contact" },
   ]
 
