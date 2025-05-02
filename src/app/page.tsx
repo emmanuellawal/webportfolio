@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Linkedin, Mail, ArrowRight, Code, Server, Palette, User, Phone } from "lucide-react";
+import { ScrollButton } from "@/components/ScrollButton";
 
 export default function Home() {
   return (
@@ -22,21 +23,21 @@ export default function Home() {
               I craft exceptional digital experiences with modern technologies, focusing on scalable and user-centric solutions.
             </p>
             <div className="flex gap-4 justify-center pt-4">
-              <Button 
-                onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                size="lg" 
+              <ScrollButton
+                targetId="#projects"
+                size="lg"
                 className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover-lift glow"
               >
                 View My Work
-              </Button>
-              <Button 
-                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                variant="outline" 
-                size="lg" 
+              </ScrollButton>
+              <ScrollButton
+                targetId="#contact"
+                variant="outline"
+                size="lg"
                 className="hover-lift border-primary-500/20 hover:border-primary-500 backdrop-blur-sm"
               >
                 Get in Touch
-              </Button>
+              </ScrollButton>
             </div>
             <div className="flex gap-4 justify-center pt-8">
               <a href="https://github.com/emmanuellawal" target="_blank" rel="noopener noreferrer">

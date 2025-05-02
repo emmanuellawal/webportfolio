@@ -83,7 +83,7 @@ export function MainNav() {
                       scrollToSection(route.href);
                       const sheet = document.querySelector('[data-state="open"]');
                       if (sheet) {
-                        const closeButton = sheet.querySelector('button[aria-label="Close"]');
+                        const closeButton = sheet.querySelector('button[aria-label="Close"]') as HTMLButtonElement;
                         closeButton?.click();
                       }
                     }}
