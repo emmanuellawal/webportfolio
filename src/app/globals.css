@@ -48,8 +48,22 @@
     @apply border-border;
   }
 
+  /* Prevent horizontal scrolling */
+  html, body {
+    @apply overflow-x-hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     @apply font-sans bg-gradient-to-b from-background via-background/95 to-background/90 text-foreground text-base leading-relaxed min-h-screen;
+    position: relative;
+  }
+
+  /* Ensure container doesn't cause overflow */
+  .container {
+    @apply overflow-x-hidden;
   }
 
   /* Modern Typography Base Styles */

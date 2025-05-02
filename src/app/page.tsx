@@ -33,8 +33,8 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto space-y-32 px-4">
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <main className="container mx-auto space-y-32 px-4 relative">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center pt-16">
         <div className="text-center space-y-6 max-w-[800px] mx-auto">
