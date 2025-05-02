@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -15,37 +14,47 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 
 export function MainNav() {
   const routes = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/skills", label: "Skills" },
-    { href: "/contact", label: "Contact" },
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Skills" },
+    { href: "#contact", label: "Contact" },
   ]
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="flex items-center justify-between w-full py-4 px-4 md:px-8 max-w-7xl mx-auto">
-        <Link href="/" className="text-xl font-mono font-bold relative group">
+        <button 
+          onClick={() => scrollToSection('#home')} 
+          className="text-xl font-mono font-bold relative group"
+        >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
             Emmanuel
           </span>
           <span className="text-accent-500">.dev</span>
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></span>
-        </Link>
+        </button>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {routes.map((route) => (
-            <Link 
-              key={route.href} 
-              href={route.href}
-              className="relative text-base font-medium group"
+            <button 
+              key={route.href}
+              onClick={() => scrollToSection(route.href)}
+              className="relative text-base font-medium group cursor-pointer"
             >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-500">
                 {route.label}
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 group-hover:w-full transition-all duration-300"></span>
-            </Link>
+            </button>
           ))}
         </div>
         
@@ -68,13 +77,20 @@ export function MainNav() {
               </SheetHeader>
               <nav className="flex flex-col gap-2 py-6 px-6">
                 {routes.map((route) => (
-                  <Link
+                  <button
                     key={route.href}
-                    href={route.href}
+                    onClick={() => {
+                      scrollToSection(route.href);
+                      const sheet = document.querySelector('[data-state="open"]');
+                      if (sheet) {
+                        const closeButton = sheet.querySelector('button[aria-label="Close"]');
+                        closeButton?.click();
+                      }
+                    }}
                     className="block w-full rounded-lg px-4 py-3 text-base font-medium text-left hover:bg-primary-500/10 hover:text-primary-500 transition-colors"
                   >
                     {route.label}
-                  </Link>
+                  </button>
                 ))}
               </nav>
             </SheetContent>
