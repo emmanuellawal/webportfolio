@@ -363,7 +363,7 @@ export default function Home() {
                       className="flex items-center gap-3 text-medium-contrast hover:text-primary-500 transition-colors p-3 rounded-lg hover:bg-primary-500/10"
                     >
                       <Mail className="h-5 w-5" />
-                      <span className="text-lg">emmanuellawal2024@gmail.com</span>
+                      <span className="text-lg">Email</span>
                     </a>
                     <a 
                       href="https://github.com/emmanuellawal"
@@ -372,7 +372,7 @@ export default function Home() {
                       className="flex items-center gap-3 text-medium-contrast hover:text-secondary-500 transition-colors p-3 rounded-lg hover:bg-secondary-500/10"
                     >
                       <Github className="h-5 w-5" />
-                      <span className="text-lg">github.com/emmanuellawal</span>
+                      <span className="text-lg">GitHub</span>
                     </a>
                     <a 
                       href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
@@ -381,7 +381,7 @@ export default function Home() {
                       className="flex items-center gap-3 text-medium-contrast hover:text-accent-500 transition-colors p-3 rounded-lg hover:bg-accent-500/10"
                     >
                       <Linkedin className="h-5 w-5" />
-                      <span className="text-lg">LinkedIn Profile</span>
+                      <span className="text-lg">LinkedIn</span>
                     </a>
                   </div>
                 </CardContent>
