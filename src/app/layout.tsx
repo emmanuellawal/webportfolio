@@ -25,6 +25,14 @@ export const metadata: Metadata = {
   description: "Full Stack Developer specializing in building exceptional digital experiences",
   authors: [{ name: "Emmanuel Lawal" }],
   keywords: ["Full Stack Developer", "Web Development", "Software Engineer", "React", "Node.js", "JavaScript", "TypeScript"],
+  icons: {
+    icon: [
+      { url: "/celestial-gear.svg" }
+    ],
+    apple: [
+      { url: "/celestial-gear.svg" }
+    ]
+  }
 };
 
 export const viewport: Viewport = {
