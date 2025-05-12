@@ -28,10 +28,10 @@ export default function Home() {
       githubUrl: "https://github.com/emmanuellawal/expo-calculator-app"
     },
     {
-      title: "Modern Web Portfolio",
-      description: "A modern portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features responsive design, dark mode, and smooth animations.",
-      image: "/projects/data-viz.jpg",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      title: "CulturalAI Navigator",
+      description: "An AI-powered tool that helps users navigate cultural nuances in international communications. Features cultural context analysis, language adaptation suggestions, and interactive learning modules.",
+      image: "/projects/cultural-ai.jpg",
+      tags: ["Next.js", "AI Integration", "TypeScript", "Cultural Intelligence", "Vercel"],
       liveUrl: "#",
       githubUrl: "#"
     }
