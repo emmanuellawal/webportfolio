@@ -6,7 +6,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and profe
 
 ## 🚀 Live Demo
 
-Visit my portfolio: [emmanuellawal.dev](https://emmanuellawal.dev)
+Visit my portfolio: [emmanuellawal.dev](https://webportfolio-tan.vercel.app/)
 
 ## ✨ Features
 
