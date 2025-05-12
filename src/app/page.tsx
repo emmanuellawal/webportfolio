@@ -28,12 +28,12 @@ export default function Home() {
       githubUrl: "https://github.com/emmanuellawal/expo-calculator-app"
     },
     {
-      title: "CulturalAI Navigator",
-      description: "An AI-powered tool that helps users navigate cultural nuances in international communications. Features cultural context analysis, language adaptation suggestions, and interactive learning modules.",
+      title: "Cultural AI",
+      description: "A platform that leverages AI to provide cultural insights and recommendations. Features cultural content recommendations, AI-powered cultural analysis, and personalized user experiences. Built with React Native frontend and Node.js/Express backend with SQL Server integration.",
       image: "/projects/cultural-ai.jpg",
-      tags: ["Next.js", "AI Integration", "TypeScript", "Cultural Intelligence", "Vercel"],
+      tags: ["React Native", "Node.js", "SQL Server", "OpenAI", "Docker"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/emmanuellawal/culturalai"
     }
   ];
 
