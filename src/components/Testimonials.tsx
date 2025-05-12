@@ -56,8 +56,13 @@ const recognitions = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="testimonials-section py-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden max-w-[100vw] [scrollbar-width:none]" style={{ WebkitOverflowScrolling: 'touch', msOverflowStyle: 'none' }}>
+      <style jsx global>{`
+        .testimonials-section::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+      <div className="container mx-auto px-4 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

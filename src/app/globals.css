@@ -61,6 +61,15 @@
     position: relative;
   }
 
+  /* Hide scrollbars in all browsers */
+  .testimonials-section {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .testimonials-section::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
   /* Ensure container doesn't cause overflow */
   .container {
     @apply overflow-x-hidden;
