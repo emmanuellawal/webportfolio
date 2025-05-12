@@ -403,7 +403,7 @@ export default function Home() {
         
         {/* Availability Section - Using Scarcity principle */}
         {/* <AvailabilitySection /> */}
-        
+
         {/* Contact Section */}
         <section id="contact" className="py-16 mb-16">
           <ScrollAnimation animation="fade-up">

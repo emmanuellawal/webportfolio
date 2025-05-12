@@ -56,7 +56,7 @@ const recognitions = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+    <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

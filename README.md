@@ -99,9 +99,9 @@ To deploy your own version:
 
 Feel free to reach out if you have any questions or opportunities:
 
-- GitHub: [github.com/emmanuellawal](https://github.com/emmanuellawal)
-- LinkedIn: [linkedin.com/in/emmanuel-lawal-98519718b](https://linkedin.com/in/emmanuel-lawal-98519718b)
-- Email: [emmanuellawal2024@gmail.com](mailto:emmanuellawal2024@gmail.com)
+- GitHub: [Github](https://github.com/emmanuellawal)
+- LinkedIn: [Linkedin](https://linkedin.com/in/emmanuel-lawal-98519718b)
+- Email: [Email](mailto:emmanuellawal2024@gmail.com)
 
 ---
 

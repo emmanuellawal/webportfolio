@@ -46,11 +46,11 @@ export function MainNav() {
             />
           </div>
           <div>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
-              Emmanuel
-            </span>
-            <span className="text-accent-500">.dev</span>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
+            Emmanuel
+          </span>
+          <span className="text-accent-500">.dev</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></span>
           </div>
         </button>
         
