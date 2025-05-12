@@ -2,7 +2,6 @@
 
 A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Full Stack Developer. This portfolio highlights my expertise in frontend and backend development, UI/UX design, and demonstrates my ability to create exceptional digital experiences.
 
-![Portfolio Preview](public/portfolio-preview.png)
 
 ## 🚀 Live Demo
 
