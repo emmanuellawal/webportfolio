@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, ReactNode } from 'react';
+import { useEffect, useRef, ReactNode, useState } from 'react';
 
 type ScrollAnimationProps = {
   children: ReactNode;
@@ -8,7 +8,6 @@ type ScrollAnimationProps = {
   animation?: 'fade-up' | 'fade-in' | 'slide-in-right' | 'slide-in-left' | 'zoom-in';
   delay?: number;
   threshold?: number;
-  once?: boolean;
 };
 
 export function ScrollAnimation({
@@ -17,30 +16,31 @@ export function ScrollAnimation({
   animation = 'fade-up',
   delay = 0,
   threshold = 0.1,
-  once = true,
 }: ScrollAnimationProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // Set visibility state based on intersection
+          setIsVisible(entry.isIntersecting);
+          
           if (entry.isIntersecting) {
+            // Add animation class when element enters viewport
             setTimeout(() => {
               entry.target.classList.add('animate');
             }, delay);
-            
-            if (once) {
-              observer.unobserve(entry.target);
-            }
-          } else if (!once) {
-            entry.target.classList.remove('animate');
+          } else {
+            // Element is no longer in viewport, but we'll keep the animation state
+            // No removal of the animate class to maintain consistent appearance when scrolling up
           }
         });
       },
       {
         threshold,
-        rootMargin: '0px 0px -100px 0px',
+        rootMargin: '0px 0px -50px 0px', // Adjusted to trigger animations a bit earlier
       }
     );
     
@@ -55,7 +55,7 @@ export function ScrollAnimation({
         observer.unobserve(currentRef);
       }
     };
-  }, [delay, once, threshold]);
+  }, [delay, threshold]);
   
   const getAnimationClass = () => {
     switch (animation) {
@@ -74,8 +74,13 @@ export function ScrollAnimation({
     }
   };
   
+  // We apply the animate class directly based on visibility state
+  // This ensures the animation persists even when scrolling up
   return (
-    <div ref={ref} className={`scroll-animation ${getAnimationClass()} ${className}`}>
+    <div 
+      ref={ref} 
+      className={`scroll-animation ${getAnimationClass()} ${isVisible ? 'animate' : ''} ${className}`}
+    >
       {children}
     </div>
   );

@@ -159,16 +159,24 @@
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0s;
   will-change: transform, opacity;
+  /* Ensure animations persist with transform style and perspective */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  /* Adding a small delay for all animations for smoother experience */
+  transition-delay: 50ms;
 }
 
 .scroll-animation.animate {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1) !important;
+  /* Adding properties to ensure animation persists */
+  visibility: visible !important;
 }
 
 /* Different animation types */
 .sa-fade-up {
   transform: translate3d(0, 30px, 0);
+  opacity: 0;
 }
 
 .sa-fade-in {
@@ -177,14 +185,17 @@
 
 .sa-slide-in-right {
   transform: translate3d(50px, 0, 0);
+  opacity: 0;
 }
 
 .sa-slide-in-left {
   transform: translate3d(-50px, 0, 0);
+  opacity: 0;
 }
 
 .sa-zoom-in {
   transform: scale(0.9);
+  opacity: 0;
 }
 
 /* Animation sequences for staggered effects */
