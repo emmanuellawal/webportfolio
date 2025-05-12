@@ -105,7 +105,7 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-1">
-                    <h4 className="text-xl font-semibold text-slate-900">{testimonial.author}</h4>
+                  <h4 className="text-xl font-semibold text-slate-900">{testimonial.author}</h4>
                     <VerifiedIcon className="h-4 w-4 text-blue-500" />
                   </div>
                   <p className="text-slate-600">{testimonial.position}</p>
