@@ -109,6 +109,7 @@ export default function Home() {
             </ScrollAnimation>
             
             {/* Personal image - Adding human element to increase likability */}
+            {/* 
             <ScrollAnimation animation="fade-in" delay={100}>
               <div className="relative w-48 h-48 mx-auto mb-8">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 blur-lg opacity-50"></div>
@@ -122,6 +123,7 @@ export default function Home() {
                 </div>
               </div>
             </ScrollAnimation>
+            */}
             
             {/* Common ground/values - Highlighting relatable qualities */}
             <ScrollAnimation animation="fade-in" delay={200}>
