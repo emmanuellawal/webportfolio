@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Menu, X } from "lucide-react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 export function MainNav() {
   const routes = [
@@ -33,13 +34,24 @@ export function MainNav() {
       <div className="flex items-center justify-between w-full py-4 px-4 md:px-8 max-w-7xl mx-auto">
         <button 
           onClick={() => scrollToSection('#home')} 
-          className="text-xl font-mono font-bold relative group"
+          className="text-xl font-mono font-bold relative group flex items-center gap-2"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
-            Emmanuel
-          </span>
-          <span className="text-accent-500">.dev</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></span>
+          <div className="relative w-6 h-6">
+            <Image
+              src="/celestial-gear.svg"
+              alt="Logo"
+              width={24}
+              height={24}
+              className="object-contain"
+            />
+          </div>
+          <div>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">
+              Emmanuel
+            </span>
+            <span className="text-accent-500">.dev</span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300"></span>
+          </div>
         </button>
         
         {/* Desktop Navigation */}
