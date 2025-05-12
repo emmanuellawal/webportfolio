@@ -83,8 +83,10 @@ export function MainNav() {
                       scrollToSection(route.href);
                       const sheet = document.querySelector('[data-state="open"]');
                       if (sheet) {
-                        const closeButton = sheet.querySelector('button[aria-label="Close"]') as HTMLButtonElement;
-                        closeButton?.click();
+                        const closeButton = sheet.querySelector('button[aria-label="Close"]');
+                        if (closeButton && closeButton instanceof HTMLButtonElement) {
+                          closeButton.click();
+                        }
                       }
                     }}
                     className="block w-full rounded-lg px-4 py-3 text-base font-medium text-left hover:bg-primary-500/10 hover:text-primary-500 transition-colors"
