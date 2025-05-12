@@ -9,6 +9,7 @@ import { ScrollAnimation } from "@/components/ScrollAnimation";
 import AvailabilitySection from "@/components/AvailabilitySection";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
+import { EmailProtection } from "@/components/EmailProtection";
 
 export default function Home() {
   const projects = [
@@ -434,13 +435,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-4">
-                    <a 
-                      href="mailto:emmanuellawal2024@gmail.com"
-                      className="flex items-center gap-3 text-medium-contrast hover:text-primary-500 transition-colors p-3 rounded-lg hover:bg-primary-500/10"
-                    >
-                      <Mail className="h-5 w-5" />
-                      <span className="text-lg">Email</span>
-                    </a>
+                    <EmailProtection className="mb-4" />
                     <a 
                       href="https://github.com/emmanuellawal"
                       target="_blank"
