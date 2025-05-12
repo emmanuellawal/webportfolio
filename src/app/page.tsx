@@ -99,7 +99,7 @@ export default function Home() {
           <div className="text-center space-y-12 max-w-4xl mx-auto">
             <ScrollAnimation animation="fade-up">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+                <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 glow inline-block">
                   About Me
                 </h2>
                 <p className="text-lg text-medium-contrast">
@@ -127,9 +127,9 @@ export default function Home() {
             <ScrollAnimation animation="fade-in" delay={200}>
               <div className="bg-card/40 backdrop-blur-sm p-5 rounded-lg border border-border/50 max-w-2xl mx-auto mb-8">
                 <p className="text-medium-contrast leading-relaxed">
-                  Beyond coding, I'm passionate about <span className="text-primary-500 font-medium">music production</span>, 
-                  exploring the latest <span className="text-secondary-500 font-medium">AI research papers</span>, and enjoying 
-                  <span className="text-accent-500 font-medium"> hiking trips</span> that clear my mind for better problem-solving.
+                  Beyond coding, I'm passionate about <span className="text-blue-500 font-medium">music production</span>, 
+                  exploring the latest <span className="text-purple-500 font-medium">AI research papers</span>, and enjoying 
+                  <span className="text-orange-500 font-medium"> hiking trips</span> that clear my mind for better problem-solving. 
                   I believe the best solutions come from balancing technical expertise with creative thinking.
                 </p>
               </div>
