@@ -25,6 +25,7 @@ const Footer = () => {
     <footer className="w-full border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container py-8">
         {/* Newsletter Signup - Using Commitment and Consistency */}
+        {/* 
         <div className="mb-12 max-w-3xl mx-auto border border-primary-500/20 rounded-lg p-6 bg-primary-500/5">
           <div className="text-center mb-6">
             <h3 className="text-xl font-semibold mb-2">Join the Innovation Journey</h3>
@@ -35,7 +36,6 @@ const Footer = () => {
           
           {!subscribed ? (
             <form onSubmit={handleSubscribe} className="space-y-4">
-              {/* Commitment choice - small initial commitment */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
                 {['Web Development', 'AI & ML', 'Career Growth'].map((topic) => (
                   <div 
@@ -86,6 +86,7 @@ const Footer = () => {
             </div>
           )}
         </div>
+        */}
         
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {/* Navigation Links */}
