@@ -7,6 +7,7 @@ import { ScrollButton } from "@/components/ScrollButton";
 import { ContactDialog } from "@/components/ContactDialog";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import AvailabilitySection from "@/components/AvailabilitySection";
+import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 
 export default function Home() {
@@ -397,6 +398,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <Testimonials />
+        
         {/* Availability Section - Using Scarcity principle */}
         {/* <AvailabilitySection /> */}
         
