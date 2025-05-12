@@ -6,6 +6,7 @@ import { Github, Linkedin, Mail, ArrowRight, Code, Server, Palette, User, Phone,
 import { ScrollButton } from "@/components/ScrollButton";
 import { ContactDialog } from "@/components/ContactDialog";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
+import AvailabilitySection from "@/components/AvailabilitySection";
 import Image from "next/image";
 
 export default function Home() {
@@ -93,7 +94,7 @@ export default function Home() {
           </ScrollAnimation>
         </section>
 
-        {/* About Section */}
+        {/* About Section - Enhanced with Liking principle */}
         <section id="about" className="py-16">
           <div className="text-center space-y-12 max-w-4xl mx-auto">
             <ScrollAnimation animation="fade-up">
@@ -103,6 +104,33 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-medium-contrast">
                   Crafting the future through code and artificial intelligence.
+                </p>
+              </div>
+            </ScrollAnimation>
+            
+            {/* Personal image - Adding human element to increase likability */}
+            <ScrollAnimation animation="fade-in" delay={100}>
+              <div className="relative w-48 h-48 mx-auto mb-8">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 blur-lg opacity-50"></div>
+                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-background">
+                  <Image 
+                    src="/profile-photo.jpg" 
+                    alt="Emmanuel Lawal" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </ScrollAnimation>
+            
+            {/* Common ground/values - Highlighting relatable qualities */}
+            <ScrollAnimation animation="fade-in" delay={200}>
+              <div className="bg-card/40 backdrop-blur-sm p-5 rounded-lg border border-border/50 max-w-2xl mx-auto mb-8">
+                <p className="text-medium-contrast leading-relaxed">
+                  Beyond coding, I'm passionate about <span className="text-primary-500 font-medium">music production</span>, 
+                  exploring the latest <span className="text-secondary-500 font-medium">AI research papers</span>, and enjoying 
+                  <span className="text-accent-500 font-medium"> hiking trips</span> that clear my mind for better problem-solving.
+                  I believe the best solutions come from balancing technical expertise with creative thinking.
                 </p>
               </div>
             </ScrollAnimation>
@@ -367,6 +395,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Availability Section - Using Scarcity principle */}
+        <AvailabilitySection />
+        
         {/* Contact Section */}
         <section id="contact" className="py-16 mb-16">
           <ScrollAnimation animation="fade-up">
