@@ -8,9 +8,10 @@ interface ScrollButtonProps {
   size?: 'default' | 'sm' | 'lg' | 'icon';
   className?: string;
   children: React.ReactNode;
+  'aria-label'?: string;
 }
 
-export function ScrollButton({ targetId, variant = 'default', size = 'default', className, children }: ScrollButtonProps) {
+export function ScrollButton({ targetId, variant = 'default', size = 'default', className, children, 'aria-label': ariaLabel }: ScrollButtonProps) {
   const scrollToSection = () => {
     const element = document.querySelector(targetId);
     if (element) {
@@ -24,6 +25,7 @@ export function ScrollButton({ targetId, variant = 'default', size = 'default', 
       size={size}
       className={className}
       onClick={scrollToSection}
+      aria-label={ariaLabel}
     >
       {children}
     </Button>

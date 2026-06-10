@@ -44,8 +44,25 @@
     scroll-padding-top: 5rem;
   }
 
+  /* Respect user preference for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   * {
     @apply border-border;
+  }
+
+  /* Focus visible styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-background;
   }
 
   /* Prevent horizontal scrolling */
@@ -59,6 +76,19 @@
   body {
     @apply font-sans bg-gradient-to-b from-background via-background/95 to-background/90 text-foreground text-base leading-relaxed min-h-screen;
     position: relative;
+  }
+
+  /* Skip link styles for accessibility */
+  .sr-only:focus,
+  .sr-only:focus-visible {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 
   /* Hide scrollbars in all browsers */
@@ -108,7 +138,7 @@
   .bg-gradient-brand {
     @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500;
   }
-  
+
   .text-gradient-brand {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500;
   }
@@ -140,7 +170,6 @@
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10;
   }
 
-  /* Glow effects */
   .glow {
     @apply shadow-lg shadow-primary-500/20;
   }
@@ -159,17 +188,14 @@
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1) 0s;
   will-change: transform, opacity;
-  /* Ensure animations persist with transform style and perspective */
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  /* Adding a small delay for all animations for smoother experience */
   transition-delay: 50ms;
 }
 
 .scroll-animation.animate {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1) !important;
-  /* Adding properties to ensure animation persists */
   visibility: visible !important;
 }
 

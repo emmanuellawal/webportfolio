@@ -10,6 +10,7 @@ import AvailabilitySection from "@/components/AvailabilitySection";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import { EmailProtection } from "@/components/EmailProtection";
+import { ProjectJsonLd } from "@/components/JsonLd";
 
 export default function Home() {
   const projects = [
@@ -41,27 +42,29 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <main className="container mx-auto space-y-32 px-4 relative">
+      <ProjectJsonLd projects={projects} />
+      <article className="container mx-auto space-y-32 px-4 relative">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center justify-center pt-16">
+        <section id="home" aria-labelledby="hero-heading" className="min-h-screen flex items-center justify-center pt-16">
           <ScrollAnimation animation="fade-up">
             <div className="text-center space-y-6 max-w-[800px] mx-auto">
               <div className="relative inline-block">
-                <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 pb-2 glow">
+                <h1 id="hero-heading" className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 pb-2 glow">
                   Emmanuel Lawal
                 </h1>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-full" aria-hidden="true"></div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
+              <p className="text-2xl md:text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">
                 Full Stack Developer
-              </h2>
+              </p>
               <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
                 I craft exceptional digital experiences with modern technologies, focusing on scalable and user-centric solutions.
               </p>
-              <div className="flex gap-4 justify-center pt-4">
+              <div className="flex gap-4 justify-center pt-4" role="group" aria-label="Primary actions">
                 <ScrollButton
                   targetId="#projects"
                   size="lg"
+                  aria-label="View my projects portfolio"
                   className="bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover-lift glow"
                 >
                   View My Work
@@ -70,38 +73,39 @@ export default function Home() {
                   targetId="#contact"
                   variant="outline"
                   size="lg"
+                  aria-label="Navigate to contact section"
                   className="hover-lift border-primary-500/20 hover:border-primary-500 backdrop-blur-sm"
                 >
                   Get in Touch
                 </ScrollButton>
               </div>
-              <div className="flex gap-4 justify-center pt-8">
-                <a href="https://github.com/emmanuellawal" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" className="hover:bg-primary-500/10 hover:text-primary-500 hover-lift backdrop-blur-sm">
+              <nav aria-label="Social media links" className="flex gap-4 justify-center pt-8">
+                <a href="https://github.com/emmanuellawal" target="_blank" rel="noopener noreferrer" aria-label="Visit Emmanuel Lawal's GitHub profile (opens in new tab)">
+                  <Button variant="ghost" size="icon" aria-hidden="true" className="hover:bg-primary-500/10 hover:text-primary-500 hover-lift backdrop-blur-sm">
                     <Github className="h-5 w-5" />
                   </Button>
                 </a>
-                <a href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" className="hover:bg-secondary-500/10 hover:text-secondary-500 hover-lift backdrop-blur-sm">
+                <a href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/" target="_blank" rel="noopener noreferrer" aria-label="Visit Emmanuel Lawal's LinkedIn profile (opens in new tab)">
+                  <Button variant="ghost" size="icon" aria-hidden="true" className="hover:bg-secondary-500/10 hover:text-secondary-500 hover-lift backdrop-blur-sm">
                     <Linkedin className="h-5 w-5" />
                   </Button>
                 </a>
-                <a href="mailto:emmanuellawal2024@gmail.com">
-                  <Button variant="ghost" size="icon" className="hover:bg-accent-500/10 hover:text-accent-500 hover-lift backdrop-blur-sm">
+                <a href="mailto:emmanuellawal2024@gmail.com" aria-label="Send email to Emmanuel Lawal">
+                  <Button variant="ghost" size="icon" aria-hidden="true" className="hover:bg-accent-500/10 hover:text-accent-500 hover-lift backdrop-blur-sm">
                     <Mail className="h-5 w-5" />
                   </Button>
                 </a>
-              </div>
+              </nav>
             </div>
           </ScrollAnimation>
         </section>
 
-        {/* About Section - Enhanced with Liking principle */}
-        <section id="about" className="py-16">
+        {/* About Section */}
+        <section id="about" aria-labelledby="about-heading" className="py-16">
           <div className="text-center space-y-12 max-w-4xl mx-auto">
             <ScrollAnimation animation="fade-up">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 glow inline-block">
+                <h2 id="about-heading" className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 glow inline-block">
                   About Me
                 </h2>
                 <p className="text-lg text-medium-contrast">
@@ -225,10 +229,10 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-16">
+        <section id="skills" aria-labelledby="skills-heading" className="py-16">
           <ScrollAnimation animation="fade-up">
             <div className="text-center space-y-8 mb-16">
-              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+              <h2 id="skills-heading" className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
                 My Skills
               </h2>
               <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
@@ -292,20 +296,20 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-16">
+        <section id="projects" aria-labelledby="projects-heading" className="py-16">
           <ScrollAnimation animation="fade-up">
             <div className="text-center space-y-8 max-w-5xl mx-auto">
-              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+              <h2 id="projects-heading" className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
                 My Playground
               </h2>
               <p className="text-lg text-medium-contrast max-w-2xl mx-auto">
-                Here are some of my recent projects that showcase my skills and experience in full-stack development, 
+                Here are some of my recent projects that showcase my skills and experience in full-stack development,
                 mobile development, and AI integration.
               </p>
             </div>
           </ScrollAnimation>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12" role="list" aria-label="Project showcase">
             {projects.map((project, index) => {
               // Determine the primary color based on the first tag
               let hueColor = "from-blue-500/20 to-purple-500/20"; // default gradient
@@ -323,30 +327,31 @@ export default function Home() {
               }
 
               return (
-                <ScrollAnimation 
-                  key={index} 
+                <ScrollAnimation
+                  key={project.title}
                   animation={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
                   delay={index * 150}
                 >
-                  <div className="relative group">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${hueColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg blur-xl`} />
+                  <li className="relative group">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${hueColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg blur-xl`} aria-hidden="true" />
                     <Card className="relative group overflow-hidden border-0 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:bg-accent/80 hover:-translate-y-1">
                       <div className="aspect-video relative">
                         <Image
                           src={project.image}
-                          alt={`Screenshot of ${project.title}`}
+                          alt={`Screenshot of ${project.title} project showing the application interface`}
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          priority={index < 2}
+                          loading={index < 2 ? "eager" : "lazy"}
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background/20 transition-opacity duration-300 group-hover:opacity-0" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background/20 transition-opacity duration-300 group-hover:opacity-0" aria-hidden="true" />
                       </div>
                       <CardHeader>
-                        <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
+                        <CardTitle className="text-xl font-semibold" id={`project-${index}-title`}>{project.title}</CardTitle>
                         <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <div className="flex flex-wrap gap-2">
+                        <ul className="flex flex-wrap gap-2" role="list" aria-label={`Technologies used in ${project.title}`}>
                           {project.tags.map((tag, tagIndex) => {
                             // Define color classes based on technology category
                             let colorClass = "bg-primary/10 text-primary";
@@ -367,50 +372,50 @@ export default function Home() {
                             } else if (tag.includes("Vercel")) {
                               colorClass = "bg-gray-500/10 text-gray-500";
                             }
-                            
+
                             return (
-                              <span
+                              <li
                                 key={tagIndex}
                                 className={`px-3 py-1.5 text-sm font-medium rounded-full ${colorClass} transition-colors duration-200 hover:bg-opacity-20`}
                               >
                                 {tag}
-                              </span>
+                              </li>
                             );
                           })}
-                        </div>
+                        </ul>
                       </CardContent>
                       <CardFooter className="flex gap-4">
                         <Button asChild variant="outline" size="sm" className="transition-colors hover:bg-background/80">
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                            <Globe className="h-4 w-4" /> Live Demo
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title} (opens in new tab)`} className="flex items-center gap-2">
+                            <Globe className="h-4 w-4" aria-hidden="true" /> <span>Live Demo</span>
                           </a>
                         </Button>
                         <Button asChild variant="outline" size="sm" className="transition-colors hover:bg-background/80">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                            <Github className="h-4 w-4" /> View Code
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`View source code for ${project.title} on GitHub (opens in new tab)`} className="flex items-center gap-2">
+                            <Github className="h-4 w-4" aria-hidden="true" /> <span>View Code</span>
                           </a>
                         </Button>
                       </CardFooter>
                     </Card>
-                  </div>
+                  </li>
                 </ScrollAnimation>
               );
             })}
-          </div>
+          </ul>
         </section>
 
         {/* Testimonials Section */}
         <Testimonials />
-        
-        {/* Availability Section - Using Scarcity principle */}
+
+        {/* Availability Section */}
         {/* <AvailabilitySection /> */}
 
         {/* Contact Section */}
-        <section id="contact" className="py-16 mb-16">
+        <section id="contact" aria-labelledby="contact-heading" className="py-16 mb-16">
           <ScrollAnimation animation="fade-up">
             <div className="text-center space-y-12 max-w-4xl mx-auto">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
+                <h2 id="contact-heading" className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 glow inline-block">
                   Let's Create Something Amazing Together
                 </h2>
                 <p className="text-lg text-medium-contrast">
@@ -425,8 +430,8 @@ export default function Home() {
             <ScrollAnimation animation="slide-in-left" delay={100}>
               <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8 hover:bg-card/60 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Mail className="h-5 w-5 text-primary-500" />
+                  <CardTitle id="direct-contact-title" className="flex items-center gap-2">
+                    <Mail className="h-5 w-5 text-primary-500" aria-hidden="true" />
                     Direct Contact
                   </CardTitle>
                   <CardDescription>
@@ -436,22 +441,24 @@ export default function Home() {
                 <CardContent className="space-y-4">
                   <div className="space-y-4">
                     <EmailProtection className="mb-4" />
-                    <a 
+                    <a
                       href="https://github.com/emmanuellawal"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Visit Emmanuel's GitHub profile (opens in new tab)"
                       className="flex items-center gap-3 text-medium-contrast hover:text-secondary-500 transition-colors p-3 rounded-lg hover:bg-secondary-500/10"
                     >
-                      <Github className="h-5 w-5" />
+                      <Github className="h-5 w-5" aria-hidden="true" />
                       <span className="text-lg">GitHub</span>
                     </a>
-                    <a 
+                    <a
                       href="https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="Visit Emmanuel's LinkedIn profile (opens in new tab)"
                       className="flex items-center gap-3 text-medium-contrast hover:text-accent-500 transition-colors p-3 rounded-lg hover:bg-accent-500/10"
                     >
-                      <Linkedin className="h-5 w-5" />
+                      <Linkedin className="h-5 w-5" aria-hidden="true" />
                       <span className="text-lg">LinkedIn</span>
                     </a>
                   </div>
@@ -462,8 +469,8 @@ export default function Home() {
             <ScrollAnimation animation="slide-in-right" delay={200}>
               <Card className="bg-card/40 backdrop-blur-sm border border-border/50 p-8 hover:bg-card/60 transition-all duration-300">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Sparkles className="h-5 w-5 text-secondary-500" />
+                  <CardTitle id="collaboration-title" className="flex items-center gap-2">
+                    <Sparkles className="h-5 w-5 text-secondary-500" aria-hidden="true" />
                     Project Collaboration
                   </CardTitle>
                   <CardDescription>
@@ -471,29 +478,30 @@ export default function Home() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <p className="text-medium-contrast">
-                    I specialize in:
-                    <ul className="list-none space-y-2 mt-2">
+                  <div>
+                    <p className="text-medium-contrast mb-2">I specialize in:</p>
+                    <ul className="list-none space-y-2">
                       <li className="flex items-center gap-2">
-                        <Brain className="h-4 w-4 text-primary-500" />
-                        AI Integration & Development
+                        <Brain className="h-4 w-4 text-primary-500" aria-hidden="true" />
+                        <span>AI Integration & Development</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <Code className="h-4 w-4 text-secondary-500" />
-                        Full Stack Web Applications
+                        <Code className="h-4 w-4 text-secondary-500" aria-hidden="true" />
+                        <span>Full Stack Web Applications</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <Server className="h-4 w-4 text-accent-500" />
-                        Scalable System Architecture
+                        <Server className="h-4 w-4 text-accent-500" aria-hidden="true" />
+                        <span>Scalable System Architecture</span>
                       </li>
                     </ul>
-                  </p>
+                  </div>
                   <ContactDialog>
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
+                      aria-label="Open contact form dialog"
                       className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
                     >
-                      <Send className="mr-2 h-5 w-5" />
+                      <Send className="mr-2 h-5 w-5" aria-hidden="true" />
                       Start a Conversation
                     </Button>
                   </ContactDialog>
@@ -507,14 +515,14 @@ export default function Home() {
               <div className="text-center space-y-4">
                 <h3 className="text-xl font-semibold">Available for Select Projects</h3>
                 <p className="text-medium-contrast max-w-2xl mx-auto">
-                  Currently accepting new projects in AI development, web applications, and technical consulting. 
+                  Currently accepting new projects in AI development, web applications, and technical consulting.
                   Let's discuss how we can work together to bring your ideas to life.
                 </p>
               </div>
             </Card>
           </ScrollAnimation>
         </section>
-      </main>
+      </article>
     </div>
   );
 }
