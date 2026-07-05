@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/astro/ProjectCard.astro';
+import ScrollReveal from '@/components/astro/ScrollReveal.astro';
+import SectionHeading from '@/components/astro/SectionHeading.astro';
+import projects from '@/data/projects.json';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected full-stack, mobile, and AI projects by Emmanuel Lawal."
+  path="/projects"
+  jsonLd={breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])}
+>
+  <div class="container mx-auto px-4 py-12 max-w-5xl">
+    <ScrollReveal>
+      <header class="mb-16 space-y-4">
+        <SectionHeading as="h1" size="text-4xl" align="left">Projects</SectionHeading>
+        <p class="text-lg text-medium-contrast max-w-2xl">
+          Selected work showcasing full-stack development, mobile development, and AI integration.
+        </p>
+      </header>
+    </ScrollReveal>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <p class="text-medium-contrast mb-4">Interested in discussing a project?</p>
+      <a href="/about#contact" class="btn-primary">Let's Connect</a>
+    </div>
+  </div>
+</BaseLayout>

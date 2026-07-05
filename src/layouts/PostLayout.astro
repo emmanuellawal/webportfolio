@@ -1,0 +1,112 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate, slugify } from '@/lib/utils';
+import { getReadingTime } from '@/lib/reading-time';
+import { blogPostingJsonLd, breadcrumbJsonLd } from '@/lib/jsonld';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+  prev?: CollectionEntry<'blog'>;
+  next?: CollectionEntry<'blog'>;
+}
+
+const { entry, prev, next } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, heroImage, ogImage } = entry.data;
+const postImage = ogImage ?? heroImage;
+const { Content, headings } = await entry.render();
+const readingTime = getReadingTime(entry.body ?? '');
+const slug = entry.slug;
+
+const toc = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/blog/${slug}`}
+  type="article"
+  publishedTime={pubDate.toISOString()}
+  modifiedTime={(updatedDate ?? pubDate).toISOString()}
+  tags={tags}
+  ogImage={postImage}
+  jsonLd={[
+    blogPostingJsonLd({ title, description, slug, pubDate, updatedDate, tags, image: postImage }),
+    breadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+      { name: title, path: `/blog/${slug}` },
+    ]),
+  ]}
+>
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+    <header class="mb-10">
+      <nav aria-label="Breadcrumb" class="text-sm text-muted-foreground mb-4">
+        <ol class="flex flex-wrap gap-2 list-none p-0">
+          <li><a href="/" class="hover:text-primary-400">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog" class="hover:text-primary-400">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="text-foreground">{title}</li>
+        </ol>
+      </nav>
+      <div class="relative inline-block mb-4">
+        <h1 class="text-4xl font-bold text-gradient-heading pb-2 mb-0">{title}</h1>
+        <span class="absolute bottom-0 left-0 w-full h-1 rounded-full bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 shadow-[0_0_12px_rgba(14,165,233,0.5)]" aria-hidden="true"></span>
+      </div>
+      <p class="text-lg text-medium-contrast mb-4">{description}</p>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{readingTime} min read</span>
+        {updatedDate && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>Updated {formatDate(updatedDate)}</span>
+          </>
+        )}
+      </div>
+      {tags.length > 0 && (
+        <ul class="flex flex-wrap gap-2 mt-4 list-none p-0" aria-label="Tags">
+          {tags.map((tag) => (
+            <li>
+              <a href={`/blog/tags/${slugify(tag)}`} class="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-400">
+                {tag}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </header>
+
+    {toc.length > 0 && (
+      <nav aria-label="Table of contents" class="mb-10 p-4 rounded-lg border border-white/5 bg-card/40">
+        <h2 class="text-sm font-semibold mb-2">On this page</h2>
+        <ol class="space-y-1 text-sm list-none p-0">
+          {toc.map((h) => (
+            <li style={`padding-left: ${(h.depth - 2) * 12}px`}>
+              <a href={`#${h.slug}`} class="text-primary-400 hover:underline">{h.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <div class="prose-blog">
+      <Content />
+    </div>
+
+    <nav class="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row justify-between gap-4" aria-label="Post navigation">
+      {prev ? (
+        <a href={`/blog/${prev.slug}`} class="text-primary-400 hover:underline">
+          ← {prev.data.title}
+        </a>
+      ) : <span />}
+      {next ? (
+        <a href={`/blog/${next.slug}`} class="text-primary-400 hover:underline text-right">
+          {next.data.title} →
+        </a>
+      ) : <span />}
+    </nav>
+  </article>
+</BaseLayout>

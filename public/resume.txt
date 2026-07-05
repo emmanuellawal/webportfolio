@@ -1,0 +1,44 @@
+### **Emmanuel Lawal**
+Newark, NJ | (973) 590-4804 | el344@njit.edu | [Link to your LinkedIn] | [Link to your GitHub]
+
+**PROFESSIONAL SUMMARY**
+Detail-oriented and innovative IT/Computer Science graduate with a 3.83 GPA from the New Jersey Institute of Technology. Equipped with a robust technical foundation in modern frontend web development (React, Next.js), core infrastructure, and cloud computing. Proven ability to lead UX engineering, design user-centric applications, and optimize application performance for high-stakes, real-world systems. Seeking an entry-level software engineering or IT systems role to leverage strong analytical problem-solving skills and technical adaptability to drive business solutions.
+
+**EDUCATION**
+**New Jersey Institute of Technology (NJIT)**, Newark, NJ
+Bachelor of Science in Information | **May 2026**
+*   **GPA:** 3.83 / 4.0 | **Awards:** Dean’s List (Consecutive Academic Excellence)
+*   **Relevant Coursework:** IT 491 Senior Capstone, Web Development, Designing the User Experience, Requirements Analysis & Systems, Computer Networking, Cloud Computing
+
+**Essex County College (ECC)**, Newark, NJ
+Associate Degree in Computer Science | **Dec 2022**
+*   **GPA:** 3.81 / 4.0 | **Honors:** Phi Theta Kappa, National Society of Leadership and Success (NSLS)
+*   **Involvement:** Computer Science Club, Math Club
+
+**TECHNICAL SKILLS**
+*   **Languages & Frameworks:** JavaScript, React, Next.js, HTML/CSS, Python
+*   **Infrastructure & Cloud:** Servers, Virtualization, Computer Networking, Cloud Systems (AWS Basics)
+*   **Tools & Technologies:** Git/GitHub, Clerk (Auth), REST APIs, PowerShell, Microsoft Teams
+*   **Core Competencies:** Frontend Architecture, UI/UX Principles, Client-Side Caching, Cross-functional Teamwork
+
+**TECHNICAL EXPERIENCE**
+**Analytical Graphics Inc.**, Exton, PA 
+*Software Engineering Intern* | Aug 2019 – Dec 2021
+*   Engineered coding solutions for Arduino-based hardware systems, successfully completing rigorous technical training to earn a Systems Tool Kit (STK) Certification.
+*   Designed and implemented a real-time tracking model mapping the International Space Station’s orbital location relative to Earth, enhancing complex data visualization capabilities.
+
+**All Star Code Summer Intensive**, Jersey City, NJ 
+*Software Development Fellow* | Jul 2019 – Aug 2019
+*   Developed responsive, interactive web applications leveraging modern JavaScript libraries and frameworks through intensive weekly sprint projects.
+*   Collaborated in an agile-style team environment with peers to brainstorm, build, and deploy innovative tech solutions while cultivating a professional industry network.
+
+**ACADEMIC PROJECTS**
+**ResponderView — Emergency Response Mapping System (NJIT IT 491 Capstone)**
+*Frontend Lead & User Experience Engineer* | *Next.js, React, Google Maps API, Clerk* 
+*   Directed frontend development of a high-stakes, responsive web application designed to assist first responders in rapidly locating emergency resources (hydrants, hospitals, incidents).
+*   Engineered a smart client-side caching strategy that reduced external API calls by over 90%, significantly improving application performance and ensuring reliability during emergencies.
+*   Implemented advanced Google Maps integrations, engineering custom markers, InfoWindows, and deep-linking capabilities to instantly connect tabular incident data with live geographic visualizations.
+*   Integrated Clerk for secure, role-based authentication and successfully connected the Next.js UI with complex backend REST APIs to fetch and display real-time situational data.
+*   Led usability testing across mobile and desktop environments to guarantee a clean, distraction-free UX and consistent design system tailored for fast-paced emergency scenarios.
+
+***
