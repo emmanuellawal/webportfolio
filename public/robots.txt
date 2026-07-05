@@ -1,4 +1,19 @@
+<<<<<<< HEAD
 User-agent: *
 Allow: /
 
 Sitemap: https://emmanuellawal.dev/sitemap-index.xml
+=======
+# Sitemap
+Sitemap: https://emmanuellawal.dev/sitemap.xml
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or system paths (none needed for static site)
+# Disallow: /admin/
+
+# Crawl delay (optional, useful for some crawlers)
+Crawl-delay: 1
+>>>>>>> a4bfdd804d007c8b29fa444bc7b294ba3abafa1c
