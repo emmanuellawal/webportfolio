@@ -1,0 +1,26 @@
+[
+  {
+    "category": "Frontend Development",
+    "icon": "code",
+    "description": "Building beautiful interfaces",
+    "skills": ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS"]
+  },
+  {
+    "category": "Backend Development",
+    "icon": "server",
+    "description": "Powering the applications",
+    "skills": ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"]
+  },
+  {
+    "category": "UI/UX Design",
+    "icon": "palette",
+    "description": "Creating experiences",
+    "skills": ["User-centered design", "Wireframing", "Prototyping", "Accessibility"]
+  },
+  {
+    "category": "AI & Machine Learning",
+    "icon": "brain",
+    "description": "Intelligent automation",
+    "skills": ["OpenAI API", "NLP", "Prompt engineering", "ML integration"]
+  }
+]

@@ -1,0 +1,34 @@
+---
+title: "Building Accessible Dark-Mode UIs"
+description: "Lessons from auditing gradient text, glass effects, and motion for WCAG 2.1 AA compliance on developer portfolios."
+pubDate: 2025-04-15
+tags: ["Accessibility", "CSS", "Tailwind", "Design"]
+draft: false
+---
+
+Dark-mode portfolios look great until you run them through an accessibility audit. Here's what actually fails — and how to fix it.
+
+## Gradient text contrast
+
+`background-clip: text` creates beautiful headings, but screen readers and contrast checkers see the underlying color. Always provide a solid fallback:
+
+```css
+@supports not (background-clip: text) {
+  .text-gradient-heading {
+    color: theme('colors.primary.400');
+    background: none;
+  }
+}
+```
+
+## Motion preferences
+
+Scroll animations should never block content. Use `@media (prefers-reduced-motion: reduce)` to disable transforms and show content immediately.
+
+## Focus management
+
+Every button, link, and form field needs a visible `:focus-visible` outline. Don't rely on browser defaults — they disappear on dark backgrounds.
+
+## The payoff
+
+Accessible sites aren't just ethical — they rank better, convert better, and demonstrate professional maturity to hiring managers who know what to look for.

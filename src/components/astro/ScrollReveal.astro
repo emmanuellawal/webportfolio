@@ -1,0 +1,58 @@
+---
+interface Props {
+  animation?: 'fade-up' | 'fade-in' | 'slide-in-left' | 'slide-in-right' | 'zoom-in';
+  delay?: number;
+  class?: string;
+}
+
+const { animation = 'fade-up', delay = 0, class: className = '' } = Astro.props;
+const style = delay ? `transition-delay: ${delay}ms` : undefined;
+---
+
+<div
+  class:list={['scroll-reveal', className]}
+  data-scroll-reveal={animation}
+  style={style}
+>
+  <slot />
+</div>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function isInViewport(el: Element): boolean {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function setup() {
+    if (prefersReduced) {
+      document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    document.querySelectorAll('.scroll-reveal:not(.is-visible)').forEach((el) => {
+      if (isInViewport(el)) {
+        el.classList.add('is-visible');
+      } else {
+        observer.observe(el);
+      }
+    });
+  }
+
+  requestAnimationFrame(() => requestAnimationFrame(setup));
+</script>

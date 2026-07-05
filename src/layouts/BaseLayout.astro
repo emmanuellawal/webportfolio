@@ -1,0 +1,54 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@/styles/globals.css';
+import SEOHead from '@/components/astro/SEOHead.astro';
+import SkipLink from '@/components/astro/SkipLink.astro';
+import Footer from '@/components/astro/Footer.astro';
+import MainNav from '@/components/react/MainNav';
+import JsonLd from '@/components/astro/JsonLd.astro';
+import { personJsonLd, websiteJsonLd } from '@/lib/jsonld';
+import type { SEOProps } from '@/lib/seo';
+
+interface Props extends SEOProps {
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { jsonLd, ...seoProps } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOHead {...seoProps} />
+    <JsonLd data={[personJsonLd(), websiteJsonLd(), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])]} />
+  </head>
+  <body class="font-sans antialiased min-h-screen flex flex-col">
+    <SkipLink />
+    <MainNav client:idle currentPath={currentPath} />
+    <main id="main-content" class="flex-1 pt-16">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      (function () {
+        function applyObfuscatedEmails() {
+          var u = 'emmanuellawal2024';
+          var d = 'gmail' + '.' + 'com';
+          document.querySelectorAll('[data-obfuscated-email]').forEach(function (el) {
+            el.setAttribute('href', 'mailto:' + u + '@' + d);
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', applyObfuscatedEmails);
+        } else {
+          applyObfuscatedEmails();
+        }
+      })();
+    </script>
+  </body>
+</html>

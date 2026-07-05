@@ -1,0 +1,42 @@
+---
+import { formatDate, slugify } from '@/lib/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  pubDate: Date;
+  tags: string[];
+  readingTime: number;
+}
+
+const { title, description, slug, pubDate, tags, readingTime } = Astro.props;
+---
+
+<article class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-6 hover:bg-card/60 transition-colors">
+  <time datetime={pubDate.toISOString()} class="text-sm text-muted-foreground">
+    {formatDate(pubDate)}
+  </time>
+  <span class="text-sm text-muted-foreground" aria-hidden="true"> · </span>
+  <span class="text-sm text-muted-foreground">{readingTime} min read</span>
+  <h3 class="text-xl font-semibold mt-2 mb-2">
+    <a href={`/blog/${slug}`} class="hover:text-primary-400 transition-colors">
+      {title}
+    </a>
+  </h3>
+  <p class="text-medium-contrast text-sm mb-4">{description}</p>
+  {tags.length > 0 && (
+    <ul class="flex flex-wrap gap-2" aria-label="Tags">
+      {tags.map((tag) => (
+        <li>
+          <a
+            href={`/blog/tags/${slugify(tag)}`}
+            class="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-400 hover:bg-primary-500/20"
+          >
+            {tag}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</article>

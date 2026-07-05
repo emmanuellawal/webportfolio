@@ -1,0 +1,26 @@
+[
+  {
+    "quote": "Working with Emmanuel on our data visualization project was an incredible experience. His technical expertise and innovative approach to problem-solving helped us create visualizations that were both informative and visually striking.",
+    "author": "Alex Chen",
+    "position": "Data Scientist",
+    "organization": "NJIT Data Science Club",
+    "project": "Urban Mobility Analysis",
+    "rating": 5
+  },
+  {
+    "quote": "Emmanuel's contributions to our AI research project were invaluable. He quickly grasped complex ML concepts and implemented elegant solutions that improved our model's accuracy significantly.",
+    "author": "Maya Rodriguez",
+    "position": "ML Engineer",
+    "organization": "AI Research Collaborative",
+    "project": "Natural Language Processing",
+    "rating": 5
+  },
+  {
+    "quote": "During our hackathon, Emmanuel demonstrated exceptional leadership and technical skills. His ability to stay focused under pressure and deliver quality work was crucial to our team winning first place.",
+    "author": "Jordan Thompson",
+    "position": "Software Developer",
+    "organization": "HackNJIT",
+    "project": "Healthcare AI Solution",
+    "rating": 5
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "degree": "Bachelor of Science in Information Systems",
+    "institution": "New Jersey Institute of Technology (NJIT)",
+    "location": "Newark, NJ",
+    "graduated": "May 2026",
+    "gpa": "3.83 / 4.0",
+    "honors": ["Dean's List — Consecutive Academic Excellence"],
+    "coursework": [
+      "IT 491 Senior Capstone",
+      "Web Development",
+      "Designing the User Experience",
+      "Computer Networking",
+      "Cloud Computing"
+    ]
+  },
+  {
+    "degree": "Associate Degree in Computer Science",
+    "institution": "Essex County College (ECC)",
+    "location": "Newark, NJ",
+    "graduated": "Dec 2022",
+    "gpa": "3.81 / 4.0",
+    "honors": ["Phi Theta Kappa", "National Society of Leadership and Success (NSLS)"],
+    "coursework": ["Computer Science Club", "Math Club"]
+  }
+]

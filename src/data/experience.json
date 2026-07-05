@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Software Engineering Intern",
+    "organization": "Analytical Graphics Inc.",
+    "location": "Exton, PA",
+    "period": "Aug 2019 – Dec 2019",
+    "bullets": [
+      "Engineered coding solutions for Arduino-based hardware systems, earning a Systems Tool Kit (STK) Certification.",
+      "Designed and implemented a real-time tracking model mapping the International Space Station's orbital location relative to Earth."
+    ]
+  },
+  {
+    "title": "Software Development Fellow",
+    "organization": "All Star Code Summer Intensive",
+    "location": "Jersey City, NJ",
+    "period": "Jul 2019 – Aug 2019",
+    "bullets": [
+      "Developed responsive, interactive web applications using modern JavaScript libraries through intensive weekly sprint projects.",
+      "Collaborated in an agile-style team environment to brainstorm, build, and deploy innovative tech solutions."
+    ]
+  }
+]

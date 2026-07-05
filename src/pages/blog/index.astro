@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostCard from '@/components/astro/PostCard.astro';
+import ScrollReveal from '@/components/astro/ScrollReveal.astro';
+import SectionHeading from '@/components/astro/SectionHeading.astro';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '@/lib/reading-time';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Articles on web development, performance, accessibility, and AI by Emmanuel Lawal."
+  path="/blog"
+  jsonLd={breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog' }])}
+>
+  <div class="container mx-auto px-4 py-12 max-w-3xl">
+    <ScrollReveal>
+      <header class="mb-12 space-y-4">
+        <SectionHeading as="h1" size="text-4xl" align="left">Blog</SectionHeading>
+        <p class="text-lg text-medium-contrast">
+          Writing about building fast, accessible, agent-ready web experiences.
+        </p>
+      </header>
+    </ScrollReveal>
+
+    <div class="space-y-6">
+      {posts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          slug={post.slug}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+          readingTime={getReadingTime(post.body ?? '')}
+        />
+      ))}
+    </div>
+
+    {posts.length === 0 && (
+      <p class="text-medium-contrast">No posts yet. Check back soon.</p>
+    )}
+  </div>
+</BaseLayout>

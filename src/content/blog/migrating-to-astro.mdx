@@ -1,0 +1,38 @@
+---
+title: "Why I Migrated My Portfolio to Astro"
+description: "A practical look at rebuilding a developer portfolio for 90+ Lighthouse scores, accessibility, and agent-ready content."
+pubDate: 2025-05-01
+updatedDate: 2025-05-10
+tags: ["Astro", "Performance", "Web Development", "Accessibility"]
+draft: false
+---
+
+Rebuilding a portfolio is never just about swapping frameworks. It's about aligning your site with what recruiters, clients, and automated agents actually need: fast load times, semantic HTML, structured data, and content that's easy to parse.
+
+## The performance case
+
+Most portfolio sites ship far more JavaScript than they need. Astro's islands architecture lets you keep React where interactivity matters — navigation, forms — and ship zero JS everywhere else.
+
+```typescript
+// Only hydrate what needs it
+<MainNav client:idle />
+```
+
+That single decision often moves Performance from the 70s into the 90s.
+
+## Accessibility is not optional
+
+WCAG 2.1 AA means more than alt text. It means:
+
+- Respecting `prefers-reduced-motion`
+- Visible focus states on every interactive element
+- A skip link for keyboard users
+- Contrast ratios that work on dark themes (gradient text needs fallbacks)
+
+## Agent-ready content
+
+Search engines and AI agents read your HTML first. JSON-LD, RSS feeds, `llms.txt`, and clean heading hierarchy make your work discoverable without a database or CMS backend.
+
+## What's next
+
+This site is statically generated from MDX blog posts and JSON data files. No database, no server runtime — just content that deploys anywhere.

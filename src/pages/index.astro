@@ -1,0 +1,113 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/astro/Hero.astro';
+import SkillGrid from '@/components/astro/SkillGrid.astro';
+import ProjectCard from '@/components/astro/ProjectCard.astro';
+import PostCard from '@/components/astro/PostCard.astro';
+import Testimonials from '@/components/astro/Testimonials.astro';
+import ScrollReveal from '@/components/astro/ScrollReveal.astro';
+import SectionHeading from '@/components/astro/SectionHeading.astro';
+import projects from '@/data/projects.json';
+import profile from '@/data/profile.json';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '@/lib/reading-time';
+
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const recentPosts = allPosts.slice(0, 3);
+---
+
+<BaseLayout path="/">
+  <Hero />
+
+  <div class="container mx-auto px-4 relative">
+    <section
+      class="grid min-h-[32vh] max-w-4xl mx-auto grid-rows-[1fr_auto_1fr]"
+      aria-labelledby="about-preview-heading"
+    >
+      <div aria-hidden="true"></div>
+      <ScrollReveal>
+        <div class="text-center space-y-4">
+          <SectionHeading id="about-preview-heading">About Me</SectionHeading>
+          <p class="text-lg text-medium-contrast">{profile.bio}</p>
+          <a href="/about" class="btn-outline inline-flex mt-4">Read more</a>
+        </div>
+      </ScrollReveal>
+      <div aria-hidden="true"></div>
+    </section>
+
+    <SkillGrid class="mt-24" />
+  </div>
+
+  <div class="container mx-auto px-4 space-y-32 relative mt-32">
+    <section class="py-16" aria-labelledby="projects-heading">
+      <ScrollReveal>
+        <div class="text-center space-y-4 mb-12">
+          <SectionHeading id="projects-heading">My Projects</SectionHeading>
+          <p class="text-lg text-medium-contrast max-w-2xl mx-auto">
+            Recent projects showcasing full-stack development, mobile, and AI integration.
+          </p>
+        </div>
+      </ScrollReveal>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {featuredProjects.map((project, index) => (
+          <ScrollReveal
+            animation={index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}
+            delay={index * 150}
+          >
+            <ProjectCard project={project} featured />
+          </ScrollReveal>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/projects" class="btn-outline">View all projects</a>
+      </div>
+    </section>
+
+    {recentPosts.length > 0 && (
+      <section class="py-16" aria-labelledby="blog-heading">
+        <ScrollReveal>
+          <div class="text-center space-y-4 mb-12">
+            <SectionHeading id="blog-heading">Latest Writing</SectionHeading>
+            <p class="text-lg text-medium-contrast">Thoughts on development, performance, and accessibility.</p>
+          </div>
+        </ScrollReveal>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {recentPosts.map((post, index) => (
+            <ScrollReveal
+              animation={index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}
+              delay={index * 100}
+            >
+              <PostCard
+                title={post.data.title}
+                description={post.data.description}
+                slug={post.slug}
+                pubDate={post.data.pubDate}
+                tags={post.data.tags}
+                readingTime={getReadingTime(post.body ?? '')}
+              />
+            </ScrollReveal>
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a href="/blog" class="btn-outline">Read the blog</a>
+        </div>
+      </section>
+    )}
+
+    <Testimonials />
+
+    <section class="py-16 mb-8" aria-labelledby="hire-heading">
+      <ScrollReveal>
+        <div class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-8 text-center max-w-3xl mx-auto">
+          <h2 id="hire-heading" class="text-2xl font-bold mb-3">{profile.availability.label}</h2>
+          <p class="text-medium-contrast mb-6">{profile.availability.details}</p>
+          <a href="/about#contact" class="btn-primary">Start a Conversation</a>
+        </div>
+      </ScrollReveal>
+    </section>
+  </div>
+</BaseLayout>

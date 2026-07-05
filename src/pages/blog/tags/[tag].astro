@@ -1,0 +1,62 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PostCard from '@/components/astro/PostCard.astro';
+import SectionHeading from '@/components/astro/SectionHeading.astro';
+import { getCollection } from 'astro:content';
+import { getReadingTime } from '@/lib/reading-time';
+import { slugify } from '@/lib/utils';
+import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const tagMap = new Map<string, typeof posts>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const key = slugify(tag);
+      if (!tagMap.has(key)) tagMap.set(key, []);
+      tagMap.get(key)!.push(post);
+    }
+  }
+
+  return Array.from(tagMap.entries()).map(([tagSlug, taggedPosts]) => {
+    const tagName = taggedPosts[0].data.tags.find((t) => slugify(t) === tagSlug) ?? tagSlug;
+    return {
+      params: { tag: tagSlug },
+      props: { tagName, posts: taggedPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) },
+    };
+  });
+}
+
+const { tagName, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts tagged "${tagName}"`}
+  description={`Blog posts about ${tagName} by Emmanuel Lawal.`}
+  path={`/blog/tags/${slugify(tagName)}`}
+  jsonLd={breadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: tagName, path: `/blog/tags/${slugify(tagName)}` },
+  ])}
+>
+  <div class="container mx-auto px-4 py-12 max-w-3xl">
+    <header class="mb-12 space-y-4">
+      <SectionHeading as="h1" size="text-4xl" align="left">Tag: {tagName}</SectionHeading>
+      <p class="text-medium-contrast">{posts.length} post{posts.length === 1 ? '' : 's'}</p>
+    </header>
+    <div class="space-y-6">
+      {posts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          slug={post.slug}
+          pubDate={post.data.pubDate}
+          tags={post.data.tags}
+          readingTime={getReadingTime(post.body ?? '')}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

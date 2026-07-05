@@ -1,0 +1,88 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ScrollReveal from '@/components/astro/ScrollReveal.astro';
+import SectionHeading from '@/components/astro/SectionHeading.astro';
+import projects from '@/data/projects.json';
+import { creativeWorkJsonLd, breadcrumbJsonLd } from '@/lib/jsonld';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={project.title}
+  description={project.description}
+  path={`/projects/${project.slug}`}
+  ogImage={project.image}
+  jsonLd={[
+    creativeWorkJsonLd({
+      title: project.title,
+      description: project.longDescription,
+      slug: project.slug,
+      url: project.liveUrl,
+      githubUrl: project.githubUrl,
+      tags: project.tags,
+    }),
+    breadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Projects', path: '/projects' },
+      { name: project.title, path: `/projects/${project.slug}` },
+    ]),
+  ]}
+>
+  <article class="container mx-auto px-4 py-12 max-w-3xl">
+    <nav aria-label="Breadcrumb" class="text-sm text-muted-foreground mb-6">
+      <ol class="flex flex-wrap gap-2 list-none p-0">
+        <li><a href="/" class="hover:text-primary-400">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/projects" class="hover:text-primary-400">Projects</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">{project.title}</li>
+      </ol>
+    </nav>
+
+    <ScrollReveal>
+      <header class="mb-10 space-y-4">
+        <SectionHeading as="h1" size="text-4xl" align="left">{project.title}</SectionHeading>
+        <p class="text-lg text-medium-contrast">{project.longDescription}</p>
+      </header>
+    </ScrollReveal>
+
+    <img
+      src={project.image}
+      alt={`Screenshot of ${project.title}`}
+      width={960}
+      height={540}
+      class="w-full rounded-xl mb-10"
+      loading="eager"
+      decoding="async"
+    />
+
+    <section aria-labelledby="outcome-heading" class="mb-10">
+      <h2 id="outcome-heading" class="text-2xl font-semibold mb-3">Outcome</h2>
+      <p class="text-medium-contrast">{project.outcome}</p>
+    </section>
+
+    <section aria-labelledby="stack-heading" class="mb-10">
+      <h2 id="stack-heading" class="text-2xl font-semibold mb-3">Tech Stack</h2>
+      <ul class="flex flex-wrap gap-2 list-none p-0">
+        {project.tags.map((tag) => (
+          <li><span class="px-3 py-1 text-sm rounded-full bg-primary-500/10 text-primary-400">{tag}</span></li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="flex flex-wrap gap-4">
+      {project.liveUrl && (
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">Live Demo</a>
+      )}
+      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-outline">View Code</a>
+    </div>
+  </article>
+</BaseLayout>
