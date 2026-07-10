@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ScrollReveal from '@/components/astro/ScrollReveal.astro';
-import SectionHeading from '@/components/astro/SectionHeading.astro';
 import projects from '@/data/projects.json';
 import { creativeWorkJsonLd, breadcrumbJsonLd } from '@/lib/jsonld';
 
@@ -36,53 +35,114 @@ const { project } = Astro.props;
     ]),
   ]}
 >
-  <article class="container mx-auto px-4 py-12 max-w-3xl">
-    <nav aria-label="Breadcrumb" class="text-sm text-muted-foreground mb-6">
-      <ol class="flex flex-wrap gap-2 list-none p-0">
-        <li><a href="/" class="hover:text-primary-400">Home</a></li>
-        <li aria-hidden="true">/</li>
-        <li><a href="/projects" class="hover:text-primary-400">Projects</a></li>
-        <li aria-hidden="true">/</li>
-        <li aria-current="page">{project.title}</li>
-      </ol>
-    </nav>
+  <article class="case-study">
+    <div class="site-shell section-pad">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/projects" class="text-link">Work</a>
+        <span aria-hidden="true"> / </span>
+        <span>{project.title}</span>
+      </nav>
 
-    <ScrollReveal>
-      <header class="mb-10 space-y-4">
-        <SectionHeading as="h1" size="text-4xl" align="left">{project.title}</SectionHeading>
-        <p class="text-lg text-medium-contrast">{project.longDescription}</p>
-      </header>
-    </ScrollReveal>
+      <ScrollReveal>
+        <header class="case-study__header">
+          <h1>{project.title}</h1>
+          <p class="case-study__lede">{project.description}</p>
+        </header>
+      </ScrollReveal>
+    </div>
 
     <img
       src={project.image}
       alt={`Screenshot of ${project.title}`}
-      width={960}
-      height={540}
-      class="w-full rounded-xl mb-10"
+      width="1500"
+      height="900"
+      class="case-study__hero"
       loading="eager"
       decoding="async"
     />
 
-    <section aria-labelledby="outcome-heading" class="mb-10">
-      <h2 id="outcome-heading" class="text-2xl font-semibold mb-3">Outcome</h2>
-      <p class="text-medium-contrast">{project.outcome}</p>
-    </section>
+    <div class="site-shell section-pad prose-editorial">
+      <ScrollReveal>
+        <section aria-labelledby="problem-heading">
+          <h2 id="problem-heading">Problem</h2>
+          <p>{project.longDescription}</p>
+        </section>
+      </ScrollReveal>
 
-    <section aria-labelledby="stack-heading" class="mb-10">
-      <h2 id="stack-heading" class="text-2xl font-semibold mb-3">Tech Stack</h2>
-      <ul class="flex flex-wrap gap-2 list-none p-0">
-        {project.tags.map((tag) => (
-          <li><span class="px-3 py-1 text-sm rounded-full bg-primary-500/10 text-primary-400">{tag}</span></li>
-        ))}
-      </ul>
-    </section>
+      <hr class="prose-editorial__rule" />
 
-    <div class="flex flex-wrap gap-4">
-      {project.liveUrl && (
-        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">Live Demo</a>
-      )}
-      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-outline">View Code</a>
+      <ScrollReveal>
+        <section aria-labelledby="outcome-heading">
+          <h2 id="outcome-heading">Outcome</h2>
+          <p>{project.outcome}</p>
+        </section>
+      </ScrollReveal>
+
+      <hr class="prose-editorial__rule" />
+
+      <ScrollReveal>
+        <section aria-labelledby="stack-heading">
+          <h2 id="stack-heading">Stack</h2>
+          <p class="text-muted">{project.tags.join(', ')}.</p>
+        </section>
+      </ScrollReveal>
+
+      <div class="case-study__actions">
+        {project.liveUrl && (
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+            View live demo
+          </a>
+        )}
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+          View code
+        </a>
+      </div>
     </div>
   </article>
 </BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-3);
+    margin-bottom: 2rem;
+  }
+
+  .case-study__header {
+    max-width: 42rem;
+    margin-bottom: 2rem;
+  }
+
+  .case-study__lede {
+    font-size: 1.125rem;
+    color: var(--text-2);
+    margin: 0;
+    max-width: 38ch;
+  }
+
+  .case-study__hero {
+    display: block;
+    width: 100%;
+    max-height: 32rem;
+    object-fit: cover;
+    object-position: top center;
+    border-block: 1px solid var(--hairline);
+  }
+
+  .case-study__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  .prose-editorial h2 {
+    font-size: 1.375rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .prose-editorial p {
+    color: var(--text-2);
+    max-width: 52ch;
+  }
+</style>

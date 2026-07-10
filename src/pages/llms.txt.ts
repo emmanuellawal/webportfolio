@@ -24,6 +24,7 @@ export const GET: APIRoute = async () => {
 - Role: ${profile.role}
 - Location: ${profile.location}
 - Contact: ${SITE.url}/about/#contact
+- Resume: ${SITE.url}/resume.txt
 - GitHub: ${profile.social.github}
 - LinkedIn: ${profile.social.linkedin}
 

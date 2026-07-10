@@ -1,21 +1,22 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Hero from '@/components/astro/Hero.astro';
-import SkillGrid from '@/components/astro/SkillGrid.astro';
-import ProjectCard from '@/components/astro/ProjectCard.astro';
-import PostCard from '@/components/astro/PostCard.astro';
-import Testimonials from '@/components/astro/Testimonials.astro';
 import ScrollReveal from '@/components/astro/ScrollReveal.astro';
 import SectionHeading from '@/components/astro/SectionHeading.astro';
+import ContactForm from '@/components/react/ContactForm';
 import projects from '@/data/projects.json';
+import experience from '@/data/experience.json';
 import profile from '@/data/profile.json';
 import { getCollection } from 'astro:content';
 import { getReadingTime } from '@/lib/reading-time';
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const signalTags = ['signal-tag--violet', 'signal-tag--orange', 'signal-tag--violet'];
+
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 
 const recentPosts = allPosts.slice(0, 3);
 ---
@@ -23,91 +24,172 @@ const recentPosts = allPosts.slice(0, 3);
 <BaseLayout path="/">
   <Hero />
 
-  <div class="container mx-auto px-4 relative">
-    <section
-      class="grid min-h-[32vh] max-w-4xl mx-auto grid-rows-[1fr_auto_1fr]"
-      aria-labelledby="about-preview-heading"
-    >
-      <div aria-hidden="true"></div>
-      <ScrollReveal>
-        <div class="text-center space-y-4">
-          <SectionHeading id="about-preview-heading">About Me</SectionHeading>
-          <p class="text-lg text-medium-contrast">{profile.bio}</p>
-          <a href="/about" class="btn-outline inline-flex mt-4">Read more</a>
-        </div>
-      </ScrollReveal>
-      <div aria-hidden="true"></div>
-    </section>
-
-    <SkillGrid class="mt-24" />
-  </div>
-
-  <div class="container mx-auto px-4 space-y-32 relative mt-32">
-    <section class="py-16" aria-labelledby="projects-heading">
-      <ScrollReveal>
-        <div class="text-center space-y-4 mb-12">
-          <SectionHeading id="projects-heading">My Projects</SectionHeading>
-          <p class="text-lg text-medium-contrast max-w-2xl mx-auto">
-            Recent projects showcasing full-stack development, mobile, and AI integration.
-          </p>
-        </div>
-      </ScrollReveal>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {featuredProjects.map((project, index) => (
-          <ScrollReveal
-            animation={index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}
-            delay={index * 150}
-          >
-            <ProjectCard project={project} featured />
-          </ScrollReveal>
-        ))}
+  <section id="work" class="section-pad bg-site-2" aria-labelledby="work-heading">
+    <div class="site-shell-wide">
+      <div class="section-header-row">
+        <SectionHeading id="work-heading">Selected work</SectionHeading>
+        <a href="/projects" class="text-link">All projects</a>
       </div>
-      <div class="text-center mt-10">
-        <a href="/projects" class="btn-outline">View all projects</a>
-      </div>
-    </section>
 
-    {recentPosts.length > 0 && (
-      <section class="py-16" aria-labelledby="blog-heading">
-        <ScrollReveal>
-          <div class="text-center space-y-4 mb-12">
-            <SectionHeading id="blog-heading">Latest Writing</SectionHeading>
-            <p class="text-lg text-medium-contrast">Thoughts on development, performance, and accessibility.</p>
-          </div>
-        </ScrollReveal>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {recentPosts.map((post, index) => (
-            <ScrollReveal
-              animation={index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}
-              delay={index * 100}
-            >
-              <PostCard
-                title={post.data.title}
-                description={post.data.description}
-                slug={post.slug}
-                pubDate={post.data.pubDate}
-                tags={post.data.tags}
-                readingTime={getReadingTime(post.body ?? '')}
-              />
+      <div class="ledger">
+        {
+          featuredProjects.map((project, index) => (
+            <ScrollReveal animation="ledger" delay={index * 50}>
+              <a href={`/projects/${project.slug}`} class="ledger__row">
+                <img
+                  src={project.image}
+                  alt={`Screenshot of ${project.title}`}
+                  width="150"
+                  height="94"
+                  loading="lazy"
+                  decoding="async"
+                  class="ledger__thumb"
+                />
+                <div>
+                  <h3 class="ledger__title">{project.title}</h3>
+                  <p class="ledger__meta">
+                    <span class:list={['signal-tag', signalTags[index]]}>
+                      {project.tags[0]}
+                    </span>
+                    {' '}
+                    {project.outcome}
+                  </p>
+                </div>
+                <span class="ledger__arrow" aria-hidden="true">→</span>
+              </a>
             </ScrollReveal>
-          ))}
-        </div>
-        <div class="text-center mt-10">
-          <a href="/blog" class="btn-outline">Read the blog</a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad bg-invert" aria-labelledby="approach-heading">
+    <div class="site-shell prose-editorial prose-editorial--invert">
+      <SectionHeading id="approach-heading">How the work gets made</SectionHeading>
+      <p>
+        Start with who uses it and what must read in five seconds. Then sweat the pixels.
+        Frameworks and motion stay tools — they sharpen the idea, they do not replace it.
+      </p>
+      <hr class="prose-editorial__rule" />
+      <h3 class="approach-subhead">Where AI fits</h3>
+      <p>
+        AI earns a seat when it saves real time: parsing intent, spotting patterns, speeding
+        iteration. Never as decoration. The details should still read human.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad bg-site" aria-labelledby="experience-heading">
+    <div class="site-shell">
+      <SectionHeading id="experience-heading">Experience</SectionHeading>
+      <div>
+        {
+          experience.map((item, index) => (
+            <ScrollReveal animation="ledger" delay={index * 60}>
+              <article class="experience-item">
+                <div class="experience-item__header">
+                  <h3 class="experience-item__role">{item.title}</h3>
+                  <p class="experience-item__period">{item.period}</p>
+                </div>
+                <p class="experience-item__org">
+                  {item.organization} · {item.location}
+                </p>
+                <p class="experience-item__summary">{item.summary}</p>
+              </article>
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    recentPosts.length > 0 && (
+      <section class="section-pad bg-site-2" aria-labelledby="writing-heading">
+        <div class="site-shell">
+          <div class="section-header-row">
+            <SectionHeading id="writing-heading">Writing</SectionHeading>
+            <a href="/blog" class="text-link">All posts</a>
+          </div>
+          <div>
+            {recentPosts.map((post, index) => (
+              <ScrollReveal animation="ledger" delay={index * 50}>
+                <a href={`/blog/${post.slug}`} class="writing-list__row">
+                  <h3 class="writing-list__title">{post.data.title}</h3>
+                  <p class="writing-list__meta">
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}
+                    {' · '}
+                    {getReadingTime(post.body ?? '')}
+                  </p>
+                </a>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
-    )}
+    )
+  }
 
-    <Testimonials />
-
-    <section class="py-16 mb-8" aria-labelledby="hire-heading">
-      <ScrollReveal>
-        <div class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-8 text-center max-w-3xl mx-auto">
-          <h2 id="hire-heading" class="text-2xl font-bold mb-3">{profile.availability.label}</h2>
-          <p class="text-medium-contrast mb-6">{profile.availability.details}</p>
-          <a href="/about#contact" class="btn-primary">Start a Conversation</a>
-        </div>
-      </ScrollReveal>
-    </section>
-  </div>
+  <section id="contact" class="section-pad bg-site scroll-mt-24" aria-labelledby="contact-heading">
+    <div class="site-shell contact-grid">
+      <div>
+        <SectionHeading id="contact-heading">Start a project</SectionHeading>
+        <p class="text-muted">{profile.availability.details}</p>
+        <p class="contact-resume">
+          <a href="/resume.txt" download="Emmanuel-Lawal-Resume.txt" class="text-link">
+            Download resume
+          </a>
+        </p>
+      </div>
+      <div class="contact-form-wrap">
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .section-header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header-row .section-title {
+    margin-bottom: 0;
+  }
+
+  .approach-subhead {
+    font-size: 1.25rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .contact-resume {
+    margin-top: 1.5rem;
+  }
+
+  .contact-form-wrap {
+    max-width: 32rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+</style>

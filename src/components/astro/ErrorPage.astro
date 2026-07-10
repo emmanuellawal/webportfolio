@@ -1,0 +1,33 @@
+---
+interface Props {
+  code: string;
+  title: string;
+  body: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  code,
+  title,
+  body,
+  primaryHref = '/',
+  primaryLabel = 'Back home',
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+
+<div class="site-shell section-pad error-page">
+  <p class="error-page__code" aria-hidden="true">{code}</p>
+  <h1 class="error-page__title">{title}</h1>
+  <p class="error-page__body">{body}</p>
+  <div class="error-page__actions">
+    <a href={primaryHref} class="btn-primary">{primaryLabel}</a>
+    {secondaryHref && secondaryLabel && (
+      <a href={secondaryHref} class="btn-ghost">{secondaryLabel}</a>
+    )}
+  </div>
+</div>

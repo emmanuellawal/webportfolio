@@ -41,12 +41,12 @@ const { tagName, posts } = Astro.props;
     { name: tagName, path: `/blog/tags/${slugify(tagName)}` },
   ])}
 >
-  <div class="container mx-auto px-4 py-12 max-w-3xl">
-    <header class="mb-12 space-y-4">
-      <SectionHeading as="h1" size="text-4xl" align="left">Tag: {tagName}</SectionHeading>
-      <p class="text-medium-contrast">{posts.length} post{posts.length === 1 ? '' : 's'}</p>
+  <div class="site-shell section-pad max-w-3xl">
+    <header class="mb-10">
+      <SectionHeading as="h1">Tag: {tagName}</SectionHeading>
+      <p class="text-muted">{posts.length} post{posts.length === 1 ? '' : 's'}</p>
     </header>
-    <div class="space-y-6">
+    <div>
       {posts.map((post) => (
         <PostCard
           title={post.data.title}

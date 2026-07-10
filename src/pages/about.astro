@@ -4,240 +4,126 @@ import ContactForm from '@/components/react/ContactForm';
 import ScrollReveal from '@/components/astro/ScrollReveal.astro';
 import SectionHeading from '@/components/astro/SectionHeading.astro';
 import ObfuscatedEmail from '@/components/astro/ObfuscatedEmail.astro';
-import ProfileAvatar from '@/components/astro/ProfileAvatar.astro';
 import profile from '@/data/profile.json';
 import experience from '@/data/experience.json';
-import education from '@/data/education.json';
 import skills from '@/data/skills.json';
 import { profilePageJsonLd, breadcrumbJsonLd } from '@/lib/jsonld';
 
-const professionalSummary =
-  'Detail-oriented and innovative IT/Computer Science graduate with a 3.83 GPA from the New Jersey Institute of Technology. Equipped with a robust technical foundation in modern frontend web development (React, Next.js), core infrastructure, and cloud computing. Proven ability to lead UX engineering, design user-centric applications, and optimize application performance for high-stakes, real-world systems. Seeking an entry-level software engineering or IT systems role to leverage strong analytical problem-solving skills and technical adaptability to drive business solutions.';
-
-const academicProject = {
-  title: 'ResponderView — Emergency Response Mapping System',
-  subtitle: 'NJIT IT 491 Capstone',
-  role: 'Frontend Lead & User Experience Engineer',
-  stack: ['Next.js', 'React', 'Google Maps API', 'Clerk'],
-  bullets: [
-    'Directed frontend development of a high-stakes, responsive web application designed to assist first responders in rapidly locating emergency resources (hydrants, hospitals, incidents).',
-    'Engineered a smart client-side caching strategy that reduced external API calls by over 90%, significantly improving application performance and ensuring reliability during emergencies.',
-    'Implemented advanced Google Maps integrations, engineering custom markers, InfoWindows, and deep-linking capabilities to connect tabular incident data with live geographic visualizations.',
-    'Integrated Clerk for secure, role-based authentication and connected the Next.js UI with complex backend REST APIs to fetch and display real-time situational data.',
-    'Led usability testing across mobile and desktop environments to guarantee a clean, distraction-free UX tailored for fast-paced emergency scenarios.',
-  ],
-};
+const skillSummary = skills
+  .map((group) => `${group.category}: ${group.skills.join(', ')}`)
+  .join('. ');
 ---
 
 <BaseLayout
   title="About"
-  description={`Learn about ${profile.name}, a ${profile.role} based in ${profile.location}.`}
+  description={`About ${profile.name}, a ${profile.role} based in ${profile.location}.`}
   path="/about"
   jsonLd={[profilePageJsonLd(), breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])]}
 >
-  <div class="container mx-auto px-4 py-12 max-w-4xl">
+  <div class="site-shell section-pad max-w-3xl">
     <ScrollReveal>
-      <header class="flex flex-col items-center gap-4 mb-16 w-full text-center">
-        <ProfileAvatar size="lg" alt={`Portrait of ${profile.name}`} />
-        <SectionHeading as="h1" size="text-4xl">About Me</SectionHeading>
-        <p class="text-xl text-medium-contrast max-w-2xl">{profile.tagline}</p>
-        <a href="/resume.txt" download="Emmanuel-Lawal-Resume.txt" class="btn-outline">Download Resume</a>
+      <header class="about-header">
+        <SectionHeading as="h1">About</SectionHeading>
+        <p class="about-tagline">{profile.tagline}</p>
+        <p class="text-muted">{profile.bio}</p>
+        <p class="text-subtle">{profile.interests.join(' · ')}</p>
+        <a href="/resume.txt" download="Emmanuel-Lawal-Resume.txt" class="btn-ghost about-resume">
+          Download resume
+        </a>
       </header>
     </ScrollReveal>
 
     <ScrollReveal>
-      <section aria-labelledby="summary-heading" class="mb-16">
-        <SectionHeading id="summary-heading" size="text-2xl" align="left" class="mb-6">
-          Professional Summary
-        </SectionHeading>
-        <div class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-6 border-l-4 border-l-primary-500">
-          <p class="text-medium-contrast leading-relaxed mb-0">{professionalSummary}</p>
-        </div>
+      <section aria-labelledby="approach-about-heading" class="about-section">
+        <SectionHeading id="approach-about-heading" class="about-section-title">Approach</SectionHeading>
+        <p class="text-muted">
+          I care about the parts most people skip: type rhythm, state coverage, honest loading
+          behavior, and copy that sounds like a person wrote it. AI is part of the toolkit when it
+          makes the product sharper — never the aesthetic.
+        </p>
       </section>
     </ScrollReveal>
 
-    <section aria-labelledby="experience-heading" class="mb-16">
+    <section aria-labelledby="experience-about-heading" class="about-section">
       <ScrollReveal>
-        <SectionHeading id="experience-heading" size="text-2xl" align="left" class="mb-8">
-          Work History
-        </SectionHeading>
+        <SectionHeading id="experience-about-heading" class="about-section-title">Experience</SectionHeading>
       </ScrollReveal>
-      <ol class="space-y-8 list-none p-0">
-        {experience.map((item, index) => (
-          <ScrollReveal delay={index * 100}>
-            <li class="border-l-2 border-primary-500 pl-6">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
-                <h3 class="text-lg font-semibold mb-0">{item.title}</h3>
-                <span class="text-sm text-muted-foreground shrink-0">{item.period}</span>
+      {
+        experience.map((item, index) => (
+          <ScrollReveal animation="ledger" delay={index * 60}>
+            <article class="experience-item">
+              <div class="experience-item__header">
+                <h3 class="experience-item__role">{item.title}</h3>
+                <p class="experience-item__period">{item.period}</p>
               </div>
-              <p class="text-primary-400 text-sm mb-3">
+              <p class="experience-item__org">
                 {item.organization} · {item.location}
               </p>
-              <ul class="space-y-2 list-disc pl-5 text-medium-contrast text-sm mb-0">
-                {item.bullets.map((bullet) => (
-                  <li>{bullet}</li>
-                ))}
-              </ul>
-            </li>
+              <p class="experience-item__summary">{item.summary}</p>
+            </article>
           </ScrollReveal>
-        ))}
-      </ol>
+        ))
+      }
     </section>
 
     <ScrollReveal>
-      <section aria-labelledby="academic-heading" class="mb-16">
-        <SectionHeading id="academic-heading" size="text-2xl" align="left" class="mb-6">
-          Academic Projects
-        </SectionHeading>
-        <article class="rounded-xl border border-secondary-500/30 bg-card/40 backdrop-blur-sm p-6 border-l-4 border-l-secondary-500">
-          <h3 class="text-xl font-semibold mb-1">{academicProject.title}</h3>
-          <p class="text-secondary-400 text-sm mb-1">{academicProject.subtitle}</p>
-          <p class="text-foreground text-sm font-medium mb-3">{academicProject.role}</p>
-          <ul class="flex flex-wrap gap-2 list-none p-0 mb-4" aria-label="Technologies used">
-            {academicProject.stack.map((tech) => (
-              <li>
-                <span class="px-3 py-1 text-xs font-medium rounded-full bg-secondary-500/10 text-secondary-400">
-                  {tech}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <ul class="space-y-2 list-disc pl-5 text-medium-contrast text-sm mb-0">
-            {academicProject.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-        </article>
+      <section aria-labelledby="toolkit-heading" class="about-section">
+        <SectionHeading id="toolkit-heading" class="about-section-title">Toolkit</SectionHeading>
+        <p class="text-muted">{skillSummary}</p>
       </section>
     </ScrollReveal>
 
-    <section aria-labelledby="education-heading" class="mb-16">
+    <section id="contact" aria-labelledby="contact-heading" class="about-section scroll-mt-24">
       <ScrollReveal>
-        <SectionHeading id="education-heading" size="text-2xl" align="left" class="mb-8">
-          Education
-        </SectionHeading>
-      </ScrollReveal>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {education.map((item, index) => (
-          <ScrollReveal delay={index * 100}>
-            <article class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-6 h-full">
-              <h3 class="text-lg font-semibold mb-1">{item.degree}</h3>
-              <p class="text-primary-400 text-sm mb-1">{item.institution}</p>
-              <p class="text-muted-foreground text-sm mb-3">
-                {item.location} · {item.graduated}
-              </p>
-              <p class="mb-4">
-                <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-gradient-brand text-white">
-                  GPA: {item.gpa}
-                </span>
-              </p>
-              {item.honors.length > 0 && (
-                <div class="mb-4">
-                  <h4 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">Honors</h4>
-                  <ul class="flex flex-wrap gap-2 list-none p-0">
-                    {item.honors.map((honor) => (
-                      <li>
-                        <span class="px-2 py-1 text-xs rounded-full bg-accent-500/10 text-accent-400">{honor}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {item.coursework.length > 0 && (
-                <div>
-                  <h4 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
-                    {index === 0 ? 'Relevant Coursework' : 'Involvement'}
-                  </h4>
-                  <ul class="flex flex-wrap gap-2 list-none p-0">
-                    {item.coursework.map((course) => (
-                      <li>
-                        <span class="px-2 py-1 text-xs rounded-full bg-primary-500/10 text-primary-400">{course}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </article>
-          </ScrollReveal>
-        ))}
-      </div>
-    </section>
-
-    <section aria-labelledby="toolkit-heading" class="mb-16">
-      <ScrollReveal>
-        <SectionHeading id="toolkit-heading" size="text-2xl" align="left" class="mb-8">
-          Technical Toolkit
-        </SectionHeading>
-      </ScrollReveal>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {skills.map((group, index) => (
-          <ScrollReveal delay={index * 75}>
-            <article class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-6 h-full">
-              <h3 class="text-lg font-semibold text-gradient-brand mb-1">{group.category}</h3>
-              <p class="text-muted-foreground text-xs mb-4">{group.description}</p>
-              <ul class="flex flex-wrap gap-2 list-none p-0" aria-label={`${group.category} skills`}>
-                {group.skills.map((skill) => (
-                  <li>
-                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary-500/10 text-primary-400">
-                      {skill}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </ScrollReveal>
-        ))}
-      </div>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-heading" class="scroll-mt-24">
-      <ScrollReveal>
-        <div class="text-center mb-10 space-y-4">
-          <SectionHeading id="contact-heading">Get in Touch</SectionHeading>
-          <p class="text-medium-contrast">
-            Whether you have a project idea or want to explore AI possibilities, I'm here to help.
-          </p>
+        <SectionHeading id="contact-heading" class="about-section-title">Contact</SectionHeading>
+        <p class="text-muted mb-6">{profile.availability.details}</p>
+        <div class="contact-links">
+          <ObfuscatedEmail label="Email me" class="text-link" />
+          <a href={profile.social.github} target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>
+          <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn</a>
         </div>
       </ScrollReveal>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <ScrollReveal>
-          <div class="rounded-xl border border-white/5 bg-card/40 p-8">
-            <h3 class="text-lg font-semibold mb-4">Direct Contact</h3>
-            <ul class="space-y-3 list-none p-0">
-              <li>
-                <ObfuscatedEmail />
-              </li>
-              <li>
-                <a
-                  href={profile.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-primary-400 hover:underline"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a
-                  href={profile.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-primary-400 hover:underline"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </div>
-        </ScrollReveal>
-        <ScrollReveal delay={100}>
-          <div class="rounded-xl border border-white/5 bg-card/40 p-8">
-            <h3 class="text-lg font-semibold mb-4">Send a Message</h3>
-            <ContactForm client:visible />
-          </div>
-        </ScrollReveal>
-      </div>
+      <ScrollReveal delay={80}>
+        <div class="contact-form-wrap mt-8">
+          <ContactForm client:visible />
+        </div>
+      </ScrollReveal>
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .about-header {
+    margin-bottom: 3rem;
+  }
+
+  .about-tagline {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: var(--accent-on-dark);
+  }
+
+  .about-resume {
+    margin-top: 1.5rem;
+  }
+
+  .about-section {
+    margin-bottom: 3rem;
+  }
+
+  .about-section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .contact-form-wrap {
+    max-width: 32rem;
+  }
+</style>

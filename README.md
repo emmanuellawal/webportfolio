@@ -76,7 +76,20 @@ draft: false
 4. Add custom domain `emmanuellawal.dev` in Vercel → Domains and update DNS at your registrar.
 5. Disable GitHub Pages in repo settings (Settings → Pages → Source → None) if it was previously enabled.
 
-Place your resume at `public/resume.txt` (or `public/resume.pdf`) for the About page download link.
+`vercel.json` wires host errors:
+
+| Status | Destination |
+|--------|-------------|
+| 404 (unknown routes) | `/404.html` |
+| `/error/400` | 400 + custom page |
+| `/error/401` | 401 + custom page |
+| `/error/403` | 403 + custom page |
+| `/error/429` | 429 + custom page |
+| `/error/500` | 500 + custom page |
+
+Unknown paths fall through the filesystem handle, then return **404** with the Astro `404` page. Visiting `/error/{code}` returns that status with the matching UX. Platform-level CDN failures may still show Vercel’s default page; the `/error/500` route is available for redirects or support links.
+
+Resume download: `public/resume.txt` (linked from nav, about, and contact).
 
 ## Environment Variables
 

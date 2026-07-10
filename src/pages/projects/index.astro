@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ProjectCard from '@/components/astro/ProjectCard.astro';
 import ScrollReveal from '@/components/astro/ScrollReveal.astro';
 import SectionHeading from '@/components/astro/SectionHeading.astro';
 import projects from '@/data/projects.json';
 import { breadcrumbJsonLd } from '@/lib/jsonld';
+
+const signalTags = ['signal-tag--violet', 'signal-tag--orange', 'signal-tag--violet'];
 ---
 
 <BaseLayout
@@ -13,25 +14,64 @@ import { breadcrumbJsonLd } from '@/lib/jsonld';
   path="/projects"
   jsonLd={breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Projects', path: '/projects' }])}
 >
-  <div class="container mx-auto px-4 py-12 max-w-5xl">
+  <div class="site-shell-wide section-pad">
     <ScrollReveal>
-      <header class="mb-16 space-y-4">
-        <SectionHeading as="h1" size="text-4xl" align="left">Projects</SectionHeading>
-        <p class="text-lg text-medium-contrast max-w-2xl">
-          Selected work showcasing full-stack development, mobile development, and AI integration.
+      <header class="projects-header">
+        <SectionHeading as="h1">Work</SectionHeading>
+        <p class="text-muted max-w-2xl">
+          Selected builds across data visualization, mobile, and full-stack AI integration.
         </p>
       </header>
     </ScrollReveal>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+    <div class="ledger">
+      {
+        projects.map((project, index) => (
+          <ScrollReveal animation="ledger" delay={index * 50}>
+            <a href={`/projects/${project.slug}`} class="ledger__row">
+              <img
+                src={project.image}
+                alt={`Screenshot of ${project.title}`}
+                width="150"
+                height="94"
+                loading="lazy"
+                decoding="async"
+                class="ledger__thumb"
+              />
+              <div>
+                <h2 class="ledger__title">{project.title}</h2>
+                <p class="ledger__meta">
+                  <span class:list={['signal-tag', signalTags[index % signalTags.length]]}>
+                    {project.tags[0]}
+                  </span>
+                  {' '}
+                  {project.outcome}
+                </p>
+              </div>
+              <span class="ledger__arrow" aria-hidden="true">→</span>
+            </a>
+          </ScrollReveal>
+        ))
+      }
     </div>
 
-    <div class="text-center mt-16">
-      <p class="text-medium-contrast mb-4">Interested in discussing a project?</p>
-      <a href="/about#contact" class="btn-primary">Let's Connect</a>
+    <div class="projects-cta">
+      <p class="text-muted">Interested in discussing a project?</p>
+      <a href="/#contact" class="btn-primary">Email me</a>
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .projects-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-cta {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>

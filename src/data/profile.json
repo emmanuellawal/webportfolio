@@ -1,22 +1,17 @@
 {
   "name": "Emmanuel Lawal",
   "role": "Full Stack Developer",
-  "tagline": "I craft exceptional digital experiences with modern technologies, focusing on scalable and user-centric solutions.",
-  "bio": "Full Stack Developer and Information Systems student at NJIT. I combine frontend and backend expertise with a focus on AI integration and user-centered design.",
+  "tagline": "Full stack work with deliberate detail.",
+  "bio": "Full Stack Developer based in New Jersey. I build interfaces and systems that feel intentional — from data-heavy web apps to mobile tools where AI is part of the craft, not the headline.",
   "location": "New Jersey, USA",
   "availability": {
     "status": "open",
     "label": "Available for select projects",
-    "details": "Currently accepting new projects in AI development, web applications, and technical consulting."
+    "details": "Open to freelance builds, full-time roles, and technical consulting in web applications and AI integration."
   },
   "social": {
     "github": "https://github.com/emmanuellawal",
     "linkedin": "https://www.linkedin.com/in/emmanuel-lawal-98519718b/"
   },
-  "interests": ["music production", "AI research", "hiking"],
-  "stats": {
-    "teamProjects": "15+",
-    "hackathons": "8",
-    "peerRating": "4.9/5"
-  }
+  "interests": ["music production", "AI research", "hiking"]
 }

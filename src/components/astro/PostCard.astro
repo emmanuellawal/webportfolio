@@ -13,30 +13,50 @@ interface Props {
 const { title, description, slug, pubDate, tags, readingTime } = Astro.props;
 ---
 
-<article class="rounded-xl border border-white/5 bg-card/40 backdrop-blur-sm p-6 hover:bg-card/60 transition-colors">
-  <time datetime={pubDate.toISOString()} class="text-sm text-muted-foreground">
-    {formatDate(pubDate)}
-  </time>
-  <span class="text-sm text-muted-foreground" aria-hidden="true"> · </span>
-  <span class="text-sm text-muted-foreground">{readingTime} min read</span>
-  <h3 class="text-xl font-semibold mt-2 mb-2">
-    <a href={`/blog/${slug}`} class="hover:text-primary-400 transition-colors">
-      {title}
-    </a>
-  </h3>
-  <p class="text-medium-contrast text-sm mb-4">{description}</p>
-  {tags.length > 0 && (
-    <ul class="flex flex-wrap gap-2" aria-label="Tags">
-      {tags.map((tag) => (
-        <li>
-          <a
-            href={`/blog/tags/${slugify(tag)}`}
-            class="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-400 hover:bg-primary-500/20"
-          >
-            {tag}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )}
+<article class="writing-list__row post-card">
+  <div>
+    <h3 class="writing-list__title">
+      <a href={`/blog/${slug}`} class="post-card__link">{title}</a>
+    </h3>
+    <p class="text-muted text-sm mt-2 mb-0">{description}</p>
+    {tags.length > 0 && (
+      <p class="text-subtle text-sm mt-3 mb-0">
+        {tags.map((tag, i) => (
+          <>
+            {i > 0 && ', '}
+            <a href={`/blog/tags/${slugify(tag)}`} class="text-link text-sm">{tag}</a>
+          </>
+        ))}
+      </p>
+    )}
+  </div>
+  <p class="writing-list__meta">
+    <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+    {' · '}
+    {readingTime} min
+  </p>
 </article>
+
+<style>
+  .post-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .post-card {
+      flex-direction: row;
+      align-items: baseline;
+    }
+  }
+
+  .post-card__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-card__link:hover {
+    color: var(--accent-on-dark);
+  }
+</style>
