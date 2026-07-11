@@ -4,28 +4,13 @@
   "trailingSlash": false,
   "routes": [
     {
-      "src": "/error/400",
-      "dest": "/error/400/index.html",
-      "status": 400
-    },
-    {
-      "src": "/error/401",
-      "dest": "/error/401/index.html",
-      "status": 401
-    },
-    {
-      "src": "/error/403",
-      "dest": "/error/403/index.html",
+      "src": "/403",
+      "dest": "/403/index.html",
       "status": 403
     },
     {
-      "src": "/error/429",
-      "dest": "/error/429/index.html",
-      "status": 429
-    },
-    {
-      "src": "/error/500",
-      "dest": "/error/500/index.html",
+      "src": "/500",
+      "dest": "/500.html",
       "status": 500
     },
     {

@@ -1,20 +1,19 @@
 ---
 import profile from '@/data/profile.json';
-import projects from '@/data/projects.json';
 import ObfuscatedEmail from './ObfuscatedEmail.astro';
 
 const { name, role, tagline, location, availability } = profile;
 
-const heroProject =
-  projects.find((p) => p.slug === 'three-decades-of-mobility') ?? projects[0];
-const heroImage = heroProject.image;
+const heroImage =
+  'https://picsum.photos/seed/emmanuel-portfolio-hero-ui-desk-cinematic/2400/1000';
 ---
 
 <section class="hero" aria-labelledby="hero-heading">
   <div class="site-shell hero__copy">
     <p class="hero__availability">{availability.label} · {location}</p>
     <h1 id="hero-heading" class="hero__name brand-underline">{name}</h1>
-    <p class="hero__tagline">{role}. {tagline}</p>
+    <p class="hero__role">{role}</p>
+    <p class="hero__tagline">{tagline}</p>
     <p class="hero__sub">Interfaces and systems built to feel intentional — including where AI is involved.</p>
     <div class="hero__actions">
       <a href="/projects" class="btn-primary">View selected work</a>
@@ -25,7 +24,7 @@ const heroImage = heroProject.image;
   <div class="hero__visual">
     <img
       src={heroImage}
-      alt={`Screenshot of ${heroProject.title}`}
+      alt="Full-bleed still of a shipped product interface on a dark display — replace with Emmanuel's strongest project screenshot"
       width="2400"
       height="1000"
       fetchpriority="high"
@@ -60,9 +59,16 @@ const heroImage = heroProject.image;
     margin: 0 0 0.75rem;
   }
 
+  .hero__role {
+    margin: 0 0 1rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 500;
+    color: var(--accent-on-dark);
+  }
+
   .hero__tagline {
     margin: 0 0 0.75rem;
-    max-width: 40ch;
+    max-width: 38ch;
     color: var(--text);
     font-size: clamp(1.125rem, 2vw, 1.375rem);
     font-weight: 600;
@@ -93,7 +99,6 @@ const heroImage = heroProject.image;
     width: 100%;
     height: clamp(14rem, 38vw, 28rem);
     object-fit: cover;
-    object-position: top center;
     border-top: 1px solid var(--hairline);
   }
 </style>

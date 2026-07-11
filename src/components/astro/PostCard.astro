@@ -15,9 +15,9 @@ const { title, description, slug, pubDate, tags, readingTime } = Astro.props;
 
 <article class="writing-list__row post-card">
   <div>
-    <h3 class="writing-list__title">
+    <h2 class="writing-list__title">
       <a href={`/blog/${slug}`} class="post-card__link">{title}</a>
-    </h3>
+    </h2>
     <p class="text-muted text-sm mt-2 mb-0">{description}</p>
     {tags.length > 0 && (
       <p class="text-subtle text-sm mt-3 mb-0">

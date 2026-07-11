@@ -1,6 +1,7 @@
 ---
-import '@/styles/fonts.css';
+import '@fontsource-variable/archivo/wght.css';
 import '@/styles/globals.css';
+import archivoLatinUrl from '@fontsource-variable/archivo/files/archivo-latin-wght-normal.woff2?url';
 import SEOHead from '@/components/astro/SEOHead.astro';
 import SkipLink from '@/components/astro/SkipLink.astro';
 import Footer from '@/components/astro/Footer.astro';
@@ -20,29 +21,22 @@ const currentPath = Astro.url.pathname;
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="preload" href={archivoLatinUrl} as="font" type="font/woff2" crossorigin />
     <SEOHead {...seoProps} />
-    <link
-      rel="preload"
-      href="/fonts/archivo-latin-wght.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <JsonLd data={[personJsonLd(), websiteJsonLd(), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])]} />
+    <noscript>
+      <style>
+        .scroll-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
-  <body class="antialiased min-h-screen flex flex-col truncate-safe">
+  <body class="antialiased min-h-screen flex flex-col">
     <SkipLink />
     <div class="scroll-sentinel" aria-hidden="true"></div>
     <MainNav client:idle currentPath={currentPath} />
-    <noscript>
-      <nav class="noscript-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a href="/projects">Work</a>
-        <a href="/blog">Writing</a>
-        <a href="/about">About</a>
-        <a href="/resume.txt" download="Emmanuel-Lawal-Resume.txt">Resume</a>
-      </nav>
-    </noscript>
     <main id="main-content" class="flex-1">
       <slot />
     </main>
@@ -74,31 +68,5 @@ const currentPath = Astro.url.pathname;
     width: 1px;
     height: 1px;
     pointer-events: none;
-  }
-
-  .noscript-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    padding-block: 1rem;
-    padding-inline: 1rem;
-    border-bottom: 1px solid var(--hairline);
-    background: var(--bg);
-  }
-
-  .noscript-nav a {
-    color: var(--text-2);
-    text-decoration: none;
-    font-weight: 500;
-    min-height: 2.75rem;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  @media (scripting: none) {
-    .site-header {
-      background: var(--bg) !important;
-      border-bottom-color: var(--hairline) !important;
-    }
   }
 </style>

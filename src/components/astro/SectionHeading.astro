@@ -1,11 +1,9 @@
 ---
-interface Props {
+const { as: Tag = 'h2', id, class: className = '' } = Astro.props as {
   as?: 'h1' | 'h2' | 'h3';
   id?: string;
   class?: string;
-}
-
-const { as: Tag = 'h2', id, class: className = '' } = Astro.props;
+};
 ---
 
 <Tag id={id} class:list={['section-title', className]}>

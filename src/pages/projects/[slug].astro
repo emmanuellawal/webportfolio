@@ -12,13 +12,24 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+
+const projectImages: Record<string, string> = {
+  'three-decades-of-mobility':
+    'https://picsum.photos/seed/mobility-dataviz-dashboard-dark-ui/1500/900',
+  'ai-enhanced-calculator':
+    'https://picsum.photos/seed/mobile-calculator-nlp-app-screen/800/1000',
+  'cultural-ai':
+    'https://picsum.photos/seed/cultural-ai-recommendation-app-ui/1500/900',
+};
+
+const heroImage = projectImages[project.slug] ?? project.image;
 ---
 
 <BaseLayout
   title={project.title}
   description={project.description}
   path={`/projects/${project.slug}`}
-  ogImage={project.image}
+  ogImage={heroImage}
   jsonLd={[
     creativeWorkJsonLd({
       title: project.title,
@@ -52,7 +63,7 @@ const { project } = Astro.props;
     </div>
 
     <img
-      src={project.image}
+      src={heroImage}
       alt={`Screenshot of ${project.title}`}
       width="1500"
       height="900"
@@ -125,7 +136,6 @@ const { project } = Astro.props;
     width: 100%;
     max-height: 32rem;
     object-fit: cover;
-    object-position: top center;
     border-block: 1px solid var(--hairline);
   }
 

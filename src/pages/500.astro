@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Server Error" description="Something went wrong on our end." path="/500" noindex={true}>
+  <div class="site-shell section-pad text-center max-w-lg mx-auto">
+    <h1 class="mb-4">500</h1>
+    <p class="text-muted text-lg mb-4">Something broke on our end.</p>
+    <p class="text-subtle text-sm mb-8">
+      The error has been logged. If it keeps happening,
+      <a href="mailto:emmanuellawal2024@gmail.com" class="text-link">email me directly</a>.
+    </p>
+    <a href="/" class="btn-primary">Back home</a>
+  </div>
+</BaseLayout>

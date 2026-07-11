@@ -2,37 +2,13 @@
   {
     "slug": "three-decades-of-mobility",
     "title": "Three Decades of Mobility",
-    "description": "A data visualization project exploring the relationship between vehicle registration trends and cost of living over 30 years.",
-    "longDescription": "Analyzes how areas with different housing costs show varying patterns of vehicle ownership using economic indicators like CPI. Built with React, D3.js, and TypeScript.",
-    "image": "/projects/data-viz.jpg",
-    "tags": ["React", "D3.js", "TypeScript", "Data Visualization", "Economic Analysis"],
+    "description": "Interactive data visualization exploring vehicle registration trends against cost-of-living data across 30 years of economic shifts.",
+    "longDescription": "Analyzes how areas with different housing costs show varying patterns of vehicle ownership using CPI and economic indicators. Built with React, D3.js, and TypeScript — no charting library, custom scales and transitions throughout.",
+    "image": "/projects/three-decades-of-mobility.jpg",
+    "tags": ["React", "D3.js", "TypeScript", "Data Visualization"],
     "liveUrl": "https://visualization-project-iota.vercel.app/",
     "githubUrl": "https://github.com/emmanuellawal/visualization_Project",
     "featured": true,
-    "outcome": "Interactive visualizations revealing 30-year mobility and cost-of-living trends."
-  },
-  {
-    "slug": "ai-enhanced-calculator",
-    "title": "AI-Enhanced Calculator",
-    "description": "A modern calculator app with natural language processing powered by OpenAI GPT-3.5-turbo.",
-    "longDescription": "Built with Expo and React Native. Supports conversational calculations and unit conversions through an AI-powered interface.",
-    "image": "/projects/ai-calc.jpg",
-    "tags": ["React Native", "Expo", "OpenAI API", "TypeScript", "Mobile Development"],
-    "liveUrl": null,
-    "githubUrl": "https://github.com/emmanuellawal/expo-calculator-app",
-    "featured": true,
-    "outcome": "Conversational mobile calculator with NLP-driven unit conversions."
-  },
-  {
-    "slug": "cultural-ai",
-    "title": "Cultural AI",
-    "description": "A platform leveraging AI for cultural insights, recommendations, and personalized experiences.",
-    "longDescription": "React Native frontend with Node.js/Express backend and SQL Server integration. Features AI-powered cultural analysis and content recommendations.",
-    "image": "/projects/cultural-ai.jpg",
-    "tags": ["React Native", "Node.js", "SQL Server", "OpenAI", "Docker"],
-    "liveUrl": null,
-    "githubUrl": "https://github.com/emmanuellawal/culturalai",
-    "featured": true,
-    "outcome": "Full-stack cultural recommendation platform with AI analysis."
+    "outcome": "Published visualization revealing 30-year mobility and cost-of-living patterns. Custom D3 scales, no charting library dependencies."
   }
 ]

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Archivo', 'Archivo Fallback', 'system-ui', 'sans-serif'],
+        sans: ['Archivo Variable', 'Archivo Variable Fallback', 'system-ui', 'sans-serif'],
       },
       colors: {
         background: 'var(--bg)',

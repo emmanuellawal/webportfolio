@@ -12,6 +12,15 @@ import { getReadingTime } from '@/lib/reading-time';
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
+const projectImages: Record<string, string> = {
+  'three-decades-of-mobility':
+    'https://picsum.photos/seed/mobility-dataviz-dashboard-dark-ui/1500/900',
+  'ai-enhanced-calculator':
+    'https://picsum.photos/seed/mobile-calculator-nlp-app-screen/800/1000',
+  'cultural-ai':
+    'https://picsum.photos/seed/cultural-ai-recommendation-app-ui/1500/900',
+};
+
 const signalTags = ['signal-tag--violet', 'signal-tag--orange', 'signal-tag--violet'];
 
 const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
@@ -37,7 +46,7 @@ const recentPosts = allPosts.slice(0, 3);
             <ScrollReveal animation="ledger" delay={index * 50}>
               <a href={`/projects/${project.slug}`} class="ledger__row">
                 <img
-                  src={project.image}
+                  src={projectImages[project.slug] ?? project.image}
                   alt={`Screenshot of ${project.title}`}
                   width="150"
                   height="94"
@@ -68,15 +77,26 @@ const recentPosts = allPosts.slice(0, 3);
     <div class="site-shell prose-editorial prose-editorial--invert">
       <SectionHeading id="approach-heading">How the work gets made</SectionHeading>
       <p>
-        Start with who uses it and what must read in five seconds. Then sweat the pixels.
-        Frameworks and motion stay tools — they sharpen the idea, they do not replace it.
+        I start with constraints: who uses this, what has to be legible in five seconds, and what
+        should still feel considered at pixel level. That order keeps AI, frameworks, and motion
+        in their place — tools that sharpen the idea, not replace it.
       </p>
       <hr class="prose-editorial__rule" />
       <h3 class="approach-subhead">Where AI fits</h3>
       <p>
-        AI earns a seat when it saves real time: parsing intent, spotting patterns, speeding
-        iteration. Never as decoration. The details should still read human.
+        AI shows up where it saves real time — parsing intent, surfacing patterns, accelerating
+        iteration — never as decoration. The goal is work you would not expect to be AI-assisted
+        because the details still read human.
       </p>
+      <img
+        src="https://picsum.photos/seed/developer-workspace-evening-monitor-only/1600/900"
+        alt="Quiet workspace with a single monitor showing code and design side by side"
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        class="approach-photo"
+      />
     </div>
   </section>
 
@@ -170,6 +190,15 @@ const recentPosts = allPosts.slice(0, 3);
   .approach-subhead {
     font-size: 1.25rem;
     margin: 0 0 0.75rem;
+  }
+
+  .approach-photo {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    border-radius: var(--radius-xs);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   .contact-grid {

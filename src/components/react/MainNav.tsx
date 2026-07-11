@@ -195,6 +195,9 @@ export default function MainNav({ currentPath }: MainNavProps) {
         }
 
         .site-header__logo {
+          display: inline-flex;
+          align-items: center;
+          min-height: 2.75rem;
           font-size: 1.125rem;
           font-weight: 700;
           letter-spacing: 0.06em;
@@ -211,6 +214,9 @@ export default function MainNav({ currentPath }: MainNavProps) {
         }
 
         .site-header__link {
+          display: inline-flex;
+          align-items: center;
+          min-height: 2.75rem;
           font-size: 0.9375rem;
           font-weight: 500;
           color: var(--text-2);

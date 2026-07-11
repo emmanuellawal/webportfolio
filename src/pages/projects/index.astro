@@ -5,6 +5,15 @@ import SectionHeading from '@/components/astro/SectionHeading.astro';
 import projects from '@/data/projects.json';
 import { breadcrumbJsonLd } from '@/lib/jsonld';
 
+const projectImages: Record<string, string> = {
+  'three-decades-of-mobility':
+    'https://picsum.photos/seed/mobility-dataviz-dashboard-dark-ui/1500/900',
+  'ai-enhanced-calculator':
+    'https://picsum.photos/seed/mobile-calculator-nlp-app-screen/800/1000',
+  'cultural-ai':
+    'https://picsum.photos/seed/cultural-ai-recommendation-app-ui/1500/900',
+};
+
 const signalTags = ['signal-tag--violet', 'signal-tag--orange', 'signal-tag--violet'];
 ---
 
@@ -30,7 +39,7 @@ const signalTags = ['signal-tag--violet', 'signal-tag--orange', 'signal-tag--vio
           <ScrollReveal animation="ledger" delay={index * 50}>
             <a href={`/projects/${project.slug}`} class="ledger__row">
               <img
-                src={project.image}
+                src={projectImages[project.slug] ?? project.image}
                 alt={`Screenshot of ${project.title}`}
                 width="150"
                 height="94"

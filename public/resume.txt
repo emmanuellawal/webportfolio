@@ -1,58 +1,68 @@
-Emmanuel Lawal
-Newark, NJ | (973) 590-4804 | emmanuellawal2024@gmail.com
-GitHub: https://github.com/emmanuellawal
-LinkedIn: https://www.linkedin.com/in/emmanuel-lawal-98519718b/
-Portfolio: https://emmanuellawal.dev
+### Emmanuel Lawal
 
-PROFESSIONAL SUMMARY
-Full Stack Developer focused on deliberate interfaces and reliable systems. Experience across React, Next.js, TypeScript, mobile (React Native/Expo), and AI integration where it earns its place. Open to freelance builds, full-time roles, and technical consulting.
+Newark, NJ | emmanuellawal2024@gmail.com | linkedin.com/in/emmanuel-lawal-98519718b | github.com/emmanuellawal
 
-EDUCATION
-New Jersey Institute of Technology (NJIT), Newark, NJ
+---
+
+**PROFESSIONAL SUMMARY**
+
+Forward Deployed AI Engineer with a background in information systems and computer science. Builds production-grade web and mobile systems where AI is integrated with precision — not bolted on. Comfortable owning the full stack: client-side architecture, API design, AI orchestration, and cloud deployment.
+
+---
+
+**EDUCATION**
+
+**New Jersey Institute of Technology**, Newark, NJ
 Bachelor of Science in Information Systems | May 2026
-GPA: 3.83 / 4.0 | Dean’s List
-Coursework: Senior Capstone, Web Development, UX Design, Requirements Analysis, Computer Networking, Cloud Computing
+GPA: 3.83 / 4.0 — Dean's List (Consecutive Academic Excellence)
+Relevant coursework: Senior Capstone, Web Development, Designing the User Experience, Requirements Analysis & Systems, Computer Networking, Cloud Computing
 
-Essex County College (ECC), Newark, NJ
+**Essex County College**, Newark, NJ
 Associate Degree in Computer Science | Dec 2022
-GPA: 3.81 / 4.0 | Phi Theta Kappa | National Society of Leadership and Success (NSLS)
-Involvement: Computer Science Club, Math Club
+GPA: 3.81 / 4.0
 
-TECHNICAL SKILLS
-Languages & Frameworks: JavaScript, TypeScript, React, Next.js, React Native, HTML/CSS, Python
-Backend & Data: Node.js, Express, REST APIs, SQL Server, PostgreSQL
-Infrastructure: Git/GitHub, Docker, AWS basics, networking, virtualization
-Practices: Frontend architecture, UI/UX, client-side caching, accessibility, performance
+---
 
-EXPERIENCE
-Analytical Graphics Inc., Exton, PA
+**TECHNICAL SKILLS**
+
+Languages & Frameworks: JavaScript, TypeScript, React, Next.js, React Native, Python, HTML/CSS
+Infrastructure & Cloud: REST APIs, Node.js, Express, SQL Server, Docker, AWS (basics), Git/GitHub
+AI & Data: OpenAI API, D3.js, LLM integration, prompt engineering, RAG patterns
+Tools: Clerk (Auth), Expo, Google Maps API, PowerShell
+
+---
+
+**EXPERIENCE**
+
+**Analytical Graphics Inc.**, Exton, PA
 Software Engineering Intern | Aug 2019 – Dec 2019
-- Built Arduino-based hardware integrations and completed STK certification training.
-- Designed a real-time model tracking the International Space Station’s position relative to Earth.
+- Built coding solutions for Arduino-based hardware systems and earned a Systems Tool Kit (STK) Certification.
+- Designed and implemented a real-time model mapping the International Space Station's orbital position relative to Earth.
 
-All Star Code Summer Intensive, Jersey City, NJ
+**All Star Code Summer Intensive**, Jersey City, NJ
 Software Development Fellow | Jul 2019 – Aug 2019
-- Shipped responsive web apps in weekly sprint cycles using modern JavaScript.
-- Worked in a team environment to prototype, build, and deploy working products.
+- Shipped responsive web applications using modern JavaScript libraries through weekly sprint cycles.
+- Worked in an agile environment to prototype, build, and deploy working products on tight timelines.
 
-SELECTED PROJECTS
-ResponderView — Emergency Response Mapping System
+---
+
+**PROJECTS**
+
+**ResponderView — Emergency Response Mapping System**
 Frontend Lead & UX Engineer | Next.js, React, Google Maps API, Clerk
-- Led frontend for a response tool that helps first responders locate hydrants, hospitals, and incidents.
-- Cut external API calls by over 90% with a client-side caching strategy for reliability under load.
-- Built custom map markers, InfoWindows, and deep links between tabular data and live geography.
-- Integrated Clerk auth and connected the UI to backend REST APIs for real-time situational data.
-- Ran usability testing on mobile and desktop for a clean, distraction-free emergency UX.
+- Led frontend development of a responsive web application helping first responders locate emergency resources in real time.
+- Built a client-side caching strategy that cut external API calls by over 90%, improving reliability under load.
+- Engineered custom Google Maps markers, InfoWindows, and deep-links connecting tabular incident data to live map views.
+- Integrated Clerk for role-based auth and wired the Next.js UI to backend REST APIs for real-time situational data.
 
-Three Decades of Mobility
+**Three Decades of Mobility** — visualization-project-iota.vercel.app
 React, D3.js, TypeScript
-- Interactive visualizations of vehicle registration trends against cost-of-living indicators over 30 years.
-- Live: https://visualization-project-iota.vercel.app/
+- Custom D3.js visualization — no charting library — exploring vehicle registration trends against 30 years of cost-of-living data.
 
-AI-Enhanced Calculator
+**AI-Enhanced Calculator** — github.com/emmanuellawal/expo-calculator-app
 React Native, Expo, OpenAI API, TypeScript
-- Mobile calculator with natural-language calculations and unit conversions.
+- Mobile calculator with natural language processing for conversational calculations and unit conversions.
 
-Cultural AI
+**Cultural AI** — github.com/emmanuellawal/culturalai
 React Native, Node.js, SQL Server, OpenAI, Docker
-- Full-stack platform for cultural insights and personalized recommendations.
+- Full-stack cultural recommendation platform with AI-powered analysis and personalized content delivery.

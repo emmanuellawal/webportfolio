@@ -1,13 +1,13 @@
 {
   "name": "Emmanuel Lawal",
-  "role": "Full Stack Developer",
-  "tagline": "Full stack work with deliberate detail.",
-  "bio": "Full Stack Developer based in New Jersey. I build interfaces and systems that feel intentional — from data-heavy web apps to mobile tools where AI is part of the craft, not the headline.",
+  "role": "Forward Deployed AI Engineer",
+  "tagline": "AI that ships. Not AI that demos.",
+  "bio": "Forward Deployed AI Engineer based in New Jersey. I build systems where AI does real work — embedded in products, wired to real data, accountable to production. Not proof-of-concepts.",
   "location": "New Jersey, USA",
   "availability": {
     "status": "open",
     "label": "Available for select projects",
-    "details": "Open to freelance builds, full-time roles, and technical consulting in web applications and AI integration."
+    "details": "Open to freelance builds, full-time roles, and technical consulting where AI integration needs to hold up past the demo."
   },
   "social": {
     "github": "https://github.com/emmanuellawal",

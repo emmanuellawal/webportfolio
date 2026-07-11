@@ -8,7 +8,7 @@ export function personJsonLd() {
     name: SITE.name,
     url: SITE.url,
     image: getCanonicalUrl('/pic/1image.jpg'),
-    jobTitle: 'Full Stack Developer',
+    jobTitle: 'Forward Deployed AI Engineer',
     email: `mailto:${SITE.email}`,
     sameAs: [
       'https://github.com/emmanuellawal',

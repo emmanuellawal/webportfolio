@@ -17,8 +17,6 @@
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/archivo": "^5.2.8",
-    "@fontsource/ibm-plex-mono": "^5.2.5",
-    "@fontsource/inter": "^5.2.5",
     "astro": "^5.8.0",
     "clsx": "^2.1.1",
     "react": "^19.1.0",
@@ -28,7 +26,9 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2"
+    "@types/react-dom": "^19.1.2",
+    "playwright": "^1.61.1"
   }
 }

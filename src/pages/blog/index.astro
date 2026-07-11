@@ -45,8 +45,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       }
     </div>
 
-    {posts.length === 0 && (
-      <p class="empty-state">No posts yet. Check back when the next note ships.</p>
-    )}
+    {posts.length === 0 && <p class="text-muted">No posts yet.</p>}
   </div>
 </BaseLayout>

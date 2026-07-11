@@ -1,0 +1,595 @@
+{
+  "axe": {
+    "404": [],
+    "home": [],
+    "about": [],
+    "projects": [],
+    "project-detail": [],
+    "blog": [],
+    "blog-post": [],
+    "blog-tag": [],
+    "privacy": [],
+    "terms": []
+  },
+  "horizontalScroll": {
+    "home@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "about@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "projects@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "project-detail@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "blog@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "blog-post@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "blog-tag@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "privacy@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "terms@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 200
+    },
+    "404@375": {
+      "overflows": false,
+      "scrollW": 375,
+      "clientW": 375,
+      "status": 404
+    },
+    "home@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "about@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "projects@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "project-detail@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "blog@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "blog-post@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "blog-tag@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "privacy@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "terms@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 200
+    },
+    "404@768": {
+      "overflows": false,
+      "scrollW": 768,
+      "clientW": 768,
+      "status": 404
+    },
+    "home@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "about@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "projects@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "project-detail@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "blog@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "blog-post@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "blog-tag@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "privacy@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "terms@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 200
+    },
+    "404@1024": {
+      "overflows": false,
+      "scrollW": 1024,
+      "clientW": 1024,
+      "status": 404
+    },
+    "home@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "about@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "projects@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "project-detail@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "blog@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "blog-post@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "blog-tag@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "privacy@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "terms@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 200
+    },
+    "404@1280": {
+      "overflows": false,
+      "scrollW": 1280,
+      "clientW": 1280,
+      "status": 404
+    },
+    "home@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "about@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "projects@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "project-detail@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "blog@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "blog-post@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "blog-tag@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "privacy@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "terms@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 200
+    },
+    "404@1536": {
+      "overflows": false,
+      "scrollW": 1536,
+      "clientW": 1536,
+      "status": 404
+    }
+  },
+  "headings": {
+    "404": {
+      "count": 1,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1
+      ]
+    },
+    "home": {
+      "count": 12,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    "about": {
+      "count": 7,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    "projects": {
+      "count": 2,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2
+      ]
+    },
+    "project-detail": {
+      "count": 4,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    "blog": {
+      "count": 3,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2
+      ]
+    },
+    "blog-post": {
+      "count": 6,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "blog-tag": {
+      "count": 2,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2
+      ]
+    },
+    "privacy": {
+      "count": 4,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2,
+        2
+      ]
+    },
+    "terms": {
+      "count": 4,
+      "h1Count": 1,
+      "skipped": false,
+      "sequence": [
+        1,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "images": {
+    "404": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "home": {
+      "total": 3,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "about": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "projects": {
+      "total": 1,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "project-detail": {
+      "total": 1,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "blog": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "blog-post": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "blog-tag": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "privacy": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    },
+    "terms": {
+      "total": 0,
+      "missingAlt": [],
+      "emptyAlt": [],
+      "noDimensions": 0
+    }
+  },
+  "skipLink": {
+    "404": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "home": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "about": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "projects": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "project-detail": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "blog": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "blog-post": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "blog-tag": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "privacy": {
+      "present": true,
+      "offscreenByDefault": true
+    },
+    "terms": {
+      "present": true,
+      "offscreenByDefault": true
+    }
+  },
+  "focusRing": {
+    "home": {
+      "tag": "A",
+      "text": "Skip to main content",
+      "outlineWidth": "2px",
+      "outlineStyle": "solid",
+      "boxShadow": "none"
+    }
+  },
+  "touchTargets": {
+    "nav": [
+      {
+        "text": "EL",
+        "w": 25,
+        "h": 44,
+        "tooSmall": false
+      },
+      {
+        "text": "Work",
+        "w": 35,
+        "h": 44,
+        "tooSmall": false
+      },
+      {
+        "text": "Writing",
+        "w": 50,
+        "h": 44,
+        "tooSmall": false
+      },
+      {
+        "text": "About",
+        "w": 42,
+        "h": 44,
+        "tooSmall": false
+      },
+      {
+        "text": "Resume",
+        "w": 88,
+        "h": 35,
+        "tooSmall": false
+      },
+      {
+        "text": "",
+        "w": 44,
+        "h": 44,
+        "tooSmall": false
+      }
+    ]
+  },
+  "mobileDrawer": {
+    "hasToggle": true,
+    "bodyScrollLocked": true,
+    "focusMovedIntoDrawer": "A:Work",
+    "escClosed": true
+  },
+  "reducedMotion": {
+    "longTransitionCount": 0
+  }
+}

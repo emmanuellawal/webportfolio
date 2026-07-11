@@ -45,15 +45,8 @@ export default function ContactForm() {
     }
   }
 
-  const isLoading = status === 'loading';
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4"
-      noValidate
-      aria-busy={isLoading}
-    >
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div>
         <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5">
           Name
@@ -64,7 +57,6 @@ export default function ContactForm() {
           type="text"
           required
           autoComplete="name"
-          disabled={isLoading}
           className="form-input"
         />
       </div>
@@ -78,7 +70,6 @@ export default function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          disabled={isLoading}
           className="form-input"
         />
       </div>
@@ -91,23 +82,15 @@ export default function ContactForm() {
           name="message"
           required
           rows={4}
-          disabled={isLoading}
           className="form-input resize-y min-h-[7rem]"
         />
       </div>
       <button
         type="submit"
-        disabled={isLoading}
+        disabled={status === 'loading'}
         className="btn-primary w-full py-3 disabled:opacity-50"
       >
-        {isLoading ? (
-          <span className="inline-flex items-center gap-2">
-            <span className="form-spinner" aria-hidden="true" />
-            Sending…
-          </span>
-        ) : (
-          'Send message'
-        )}
+        {status === 'loading' ? 'Sending…' : 'Send message'}
       </button>
       {message && (
         <p
@@ -118,22 +101,6 @@ export default function ContactForm() {
           {message}
         </p>
       )}
-      <style>{`
-        .form-spinner {
-          width: 1rem;
-          height: 1rem;
-          border: 1.5px solid color-mix(in oklab, var(--text) 35%, transparent);
-          border-top-color: var(--text);
-          border-radius: 9999px;
-          animation: form-spin 600ms linear infinite;
-        }
-        @keyframes form-spin {
-          to { transform: rotate(360deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .form-spinner { animation: none; border-top-color: var(--text); opacity: 0.7; }
-        }
-      `}</style>
     </form>
   );
 }

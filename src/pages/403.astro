@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Access Denied" description="You don't have permission to view this page." path="/403" noindex={true}>
+  <div class="site-shell section-pad text-center max-w-lg mx-auto">
+    <h1 class="mb-4">403</h1>
+    <p class="text-muted text-lg mb-8">You don't have permission to view this page.</p>
+    <a href="/" class="btn-primary">Back home</a>
+  </div>
+</BaseLayout>

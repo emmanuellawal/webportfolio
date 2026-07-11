@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Metric-matched fallback — shrinks Arial to match Archivo's metrics, killing CLS */
+@font-face {
+  font-family: 'Archivo Variable Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('sans-serif');
+  ascent-override: 90%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 95%;
+}
+
 @layer base {
   :root {
-    --font-sans: 'Archivo', 'Archivo Fallback', system-ui, sans-serif;
+    --font-sans: 'Archivo Variable', 'Archivo Variable Fallback', system-ui, sans-serif;
     --line-height-body: 1.65;
     --tracking-heading-tight: -0.02em;
 
@@ -15,7 +25,7 @@
     --bg-invert: oklch(0.97 0.008 210);
     --text: oklch(0.96 0.01 210);
     --text-2: oklch(0.72 0.012 210);
-    --text-3: oklch(0.6 0.01 210);
+    --text-3: oklch(0.62 0.01 210);
     --text-invert: oklch(0.16 0.014 210);
     --text-invert-2: oklch(0.42 0.012 210);
 
@@ -54,6 +64,7 @@
 
   * {
     border-color: var(--hairline);
+    min-width: 0;
   }
 
   html,
@@ -72,6 +83,8 @@
     background: var(--bg);
     min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   h1,
@@ -172,55 +185,12 @@
     padding-block: clamp(4rem, 8vw, 6rem);
   }
 
-  .truncate-safe {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  .empty-state {
-    padding-block: 2rem;
-    color: var(--text-2);
-    max-width: 40ch;
-  }
-
-  .error-page {
-    text-align: center;
-    max-width: 36rem;
-    margin-inline: auto;
-  }
-
-  .error-page__code {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    margin: 0 0 1rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .error-page__title {
-    margin: 0 0 0.75rem;
-  }
-
-  .error-page__body {
-    color: var(--text-2);
-    margin: 0 0 2rem;
-  }
-
-  .error-page__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 2.75rem;
-    padding-block: 0.75rem;
-    padding-inline: 1.25rem;
+    padding: 0.75rem 1.25rem;
     border-radius: var(--radius-sm);
     font-size: 0.9375rem;
     font-weight: 600;
@@ -253,9 +223,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 2.75rem;
-    padding-block: 0.75rem;
-    padding-inline: 1.25rem;
+    padding: 0.75rem 1.25rem;
     border-radius: var(--radius-sm);
     font-size: 0.9375rem;
     font-weight: 500;
@@ -399,7 +367,7 @@
   }
 
   .prose-editorial {
-    max-width: 40rem;
+    max-width: 45rem;
   }
 
   .prose-editorial__rule {

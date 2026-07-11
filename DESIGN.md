@@ -286,12 +286,6 @@ CTA pair: work + contact/resume
 | 2026-07-10 | No bento, no WebGL default | Gates closed; recruiter usability |
 | 2026-07-10 | Strip student framing | Explicit constraint |
 | 2026-07-10 | Typographic footer | Agency IA is thin |
-| 2026-07-10 | Real `/projects/*.jpg` only; no Picsum | User: ship real screenshots |
-| 2026-07-10 | School vibe only in `resume.txt` | User constraint |
-| 2026-07-10 | Phase 6 dead-code strip | SkillGrid, cards, testimonials, education JSON |
-| 2026-07-10 | `--text-3` L 0.60; prose 40rem | Phase 7 AA + measure |
-| 2026-07-10 | Self-host Archivo variable + preload | Phase 8 font discipline |
-| 2026-07-10 | `/error/{code}` static pages | Phase 8 host error UX |
 
 ---
 
@@ -303,4 +297,6 @@ Three decisions that would not transfer to a SaaS or hospitality brief:
 2. **Archivo compressed display slabs** at ~71px with −0.02em tracking as the brand hero  
 3. **Memorable filter as copy law** — every line must read detail-first; AI never the loudest claim  
 
-See also [`HANDOFF.md`](./HANDOFF.md) for route map, open items, and grep entry points.
+---
+
+*Phase 3 output. Awaiting approval before Phase 4 (Screen Specification).*
